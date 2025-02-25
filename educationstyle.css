@@ -1,0 +1,76 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: white;
+    color: #333;
+    line-height: 1.6;
+    text-align: center;
+}
+
+header {
+    background: #222;
+    color: #fff;
+    padding: 0.1vh;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    text-align: center;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 4vw;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-family: monospace;
+    font-size: 3vw;
+}
+
+nav ul li a:hover {
+    color: #ff9800;
+}
+
+.education nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: left; /* Aligns items to the left */
+}
+
+.education nav ul li {
+    margin: 0 auto; /* Centers the item within the flex container */
+}
+
+.education nav ul li a {
+    text-decoration: none;
+    color: black; /* Adjust the color as needed */
+    padding: 10px 20px;
+    border: 1px solid black; /* Optional: Add border for better visibility */
+    border-radius: 5px; /* Optional: Add border radius for rounded corners */
+}
+
+.education h1 {
+    display: flex;
+    font-size: 1vw;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 5vh;
+    background: white;
+    color: black;
+    padding: 0;
+}
+
