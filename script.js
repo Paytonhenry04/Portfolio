@@ -15,15 +15,29 @@ document.addEventListener("DOMContentLoaded", function () {
     const typewriterText = "Hi, I'm Payton Henry";
     const typewriterElement = document.querySelector(".hero h2");
     let i = 0;
+    
     function typeWriter() {
         if (i < typewriterText.length) {
             typewriterElement.textContent += typewriterText.charAt(i);
             i++;
-            setTimeout(typeWriter, 100);
+            setTimeout(typeWriter, 120);
+        } else {
+            startInsertAnimation();
         }
     }
+    
     typewriterElement.textContent = ""; // Clear existing text
     typeWriter();
+
+    // Infinite Typing Animation
+    function startInsertAnimation() {
+        const cursorElement = document.createElement("span");
+        cursorElement.textContent = (" |");
+        typewriterElement.appendChild(cursorElement);
+        setInterval(() => {
+            cursorElement.style.visibility = cursorElement.style.visibility === "hidden" ? "visible" : "hidden";
+        }, 600); // Adjust blinking speed if needed
+    }
 
     // Hover Effect on Project Cards
     document.querySelectorAll(".project-card").forEach(card => {
@@ -35,6 +49,4 @@ document.addEventListener("DOMContentLoaded", function () {
             this.style.transform = "scale(1) rotate(0deg)";
         });
     });
-
-    
 });
