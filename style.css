@@ -7,7 +7,7 @@
 }
 
 body {
-    background: linear-gradient(to right, #5f0000, #3b003b);
+    background: linear-gradient(to right, #5f0000, #140014);
     color: #333;
     line-height: 1.6;
     text-align: center;
@@ -51,7 +51,7 @@ nav ul li a:hover {
     align-items: center; /* Centers horizontally */
     text-align: center; /* Ensures text is centered */
     height: 100vh; /* Makes section fill full viewport height */
-    background: linear-gradient(to right, #5f0000, #3b003b); /* Gradient background */
+    background: linear-gradient(to right, #5f0000, #140014); /* Gradient background */
     color: white;
     padding: 0px;
 }
@@ -88,11 +88,11 @@ nav ul li a:hover {
     max-width: 1500px;
     margin: 50px auto;
     padding: 50px;
-    background: white;
+    background: rgb(199, 199, 199);
     text-align: center;
     font-size: 30px;
     border-radius: 50px;
-    box-shadow: inset 0 0 40px rgba(255, 255, 255, 1), 0 0 50px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 0 60px rgba(255, 255, 255, 1), 0 0 50px rgba(0, 0, 0, 0.2);
 }
 
 
@@ -108,7 +108,7 @@ nav ul li a:hover {
 /* Portfolio Section */
 .portfolio {
     padding: 50px 20px;
-    background: #f4f4f4;
+    background: rgb(199, 199, 199);
 }
 
 .project-grid {
