@@ -12,13 +12,20 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // Typewriter Effect for the Hero Section
-    const typewriterText = "Hi, I'm Payton Henry";
+    const typewriterText = "Hello, My Name Is Payton Henry.";
     const typewriterElement = document.querySelector(".hero h2");
     let i = 0;
     
+    // Create cursor span element
+    const cursorElement = document.createElement("span");
+    cursorElement.textContent = "|";
+    cursorElement.style.display = "inline-block";
+    typewriterElement.appendChild(cursorElement);
+    
     function typeWriter() {
         if (i < typewriterText.length) {
-            typewriterElement.textContent += typewriterText.charAt(i);
+            typewriterElement.textContent = typewriterText.substring(0, i + 1); // Update text
+            typewriterElement.appendChild(cursorElement); // Keep cursor at the end
             i++;
             setTimeout(typeWriter, 120);
         } else {
@@ -26,14 +33,10 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
     
-    typewriterElement.textContent = ""; // Clear existing text
     typeWriter();
 
-    // Infinite Typing Animation
+    // Blinking Cursor Animation
     function startInsertAnimation() {
-        const cursorElement = document.createElement("span");
-        cursorElement.textContent = (" |");
-        typewriterElement.appendChild(cursorElement);
         setInterval(() => {
             cursorElement.style.visibility = cursorElement.style.visibility === "hidden" ? "visible" : "hidden";
         }, 600); // Adjust blinking speed if needed
