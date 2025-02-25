@@ -1,4 +1,5 @@
-/* General Styles */
+/* Responsive CSS using vh and vw for scaling across all screens */
+
 * {
     margin: 0;
     padding: 0;
@@ -17,7 +18,7 @@ body {
 header {
     background: #222;
     color: #fff;
-    padding: 7px;
+    padding: 0.1vh;
     text-align: center;
 }
 
@@ -28,14 +29,14 @@ nav ul {
 
 nav ul li {
     display: inline;
-    margin: 50px;
+    margin: 4vw;
 }
 
 nav ul li a {
     color: #fff;
     text-decoration: none;
     font-family: monospace;
-    font-size: 30px;
+    font-size: 3vw;
 }
 
 nav ul li a:hover {
@@ -45,35 +46,35 @@ nav ul li a:hover {
 /* Hero Section */
 .hero {
     display: flex;
-    font-size: 25px;
+    font-size: 1vw;
     flex-direction: column;
-    justify-content: center; /* Centers vertically */
-    align-items: center; /* Centers horizontally */
-    text-align: center; /* Ensures text is centered */
-    height: 100vh; /* Makes section fill full viewport height */
-    background: linear-gradient(to right, #5f0000, #140014); /* Gradient background */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+    background: linear-gradient(to right, #5f0000, #140014);
     color: white;
-    padding: 0px;
+    padding: 0;
 }
 
 .hero h2 {
-    font-size: 80px;
-    margin-bottom: 10px;
+    font-size: 4vw;
+    margin-bottom: 1vh;
 }
 
 .hero p {
-    font-size: 35px;
-    padding: 10px;
-    margin-bottom: 20px;
+    font-size: 2.5vw;
+    padding: 1vh;
+    margin-bottom: 2vh;
 }
 
 .hero .btn {
     display: inline-block;
-    padding: 12px 25px;
+    padding: 1.2vh 2.5vw;
     background: #9e9e9e;
     color: white;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 1vw;
     transition: 0.3s;
 }
 
@@ -81,55 +82,57 @@ nav ul li a:hover {
     background: #444;
 }
 
-
-
 /* About Section */
 .about {
-    width: 80vw;
-    margin: 50px auto;
-    padding: 50px;
+    width: 70vw;
+    margin: 5vh auto;
+    padding: 5vh;
     background: rgb(199, 199, 199);
     text-align: center;
-    font-size: 30px;
-    border-radius: 50px;
-    box-shadow: inset 0 0 60px rgba(255, 255, 255, 1), 0 0 50px rgba(0, 0, 0, 0.2);
+    font-size: 2vw;
+    border-radius: 5vw;
+    box-shadow: inset 0 0 6vw rgba(255, 255, 255, 1), 0 0 5vw rgba(0, 0, 0, 0.2);
 }
 
-
 .about img {
-    width: 20vw;
-    height: 36vh;
-    border-radius: 100%;
-    margin-top: 40px;
-    margin-bottom: 40px;
+    width: 200px;
+    height: 200px;
+    border-radius: 0%;
+    margin-top: 4vh;
+    margin-bottom: 4vh;
     scale: 1.1;
 }
 
 /* Portfolio Section */
 .portfolio {
-    padding: 50px 20px;
+    padding: 5vh 2vw;
     background: rgb(199, 199, 199);
 }
 
 .project-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    padding: 20px;
+    gap: 5vw;
+    padding: 2vw;
+    justify-content: center; /* Centers items when they don’t fill a row */
 }
 
 .project-card img {
     width: 90%;
-    height: 500px;
-    object-fit: fill; 
+    height: 50vh;
+    object-fit: fill;
 }
 
 .project-card {
     background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    padding: 2vw;
+    border-radius: 1vw;
+    box-shadow: 0px 0px 1vw rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
 }
 
 .project-card:hover {
@@ -139,29 +142,29 @@ nav ul li a:hover {
 /* Contact Section */
 .contact {
     text-align: center;
-    padding: 50px 20px;
+    padding: 5vh 2vw;
     background: #222;
     color: white;
 }
 
 .contact form {
-    max-width: 400px;
+    max-width: 40vw;
     margin: auto;
 }
 
 .contact input,
 .contact textarea {
     width: 100%;
-    padding: 10px;
-    margin-top: 10px;
+    padding: 1vh;
+    margin-top: 1vh;
     border: none;
-    border-radius: 5px;
+    border-radius: 1vw;
 }
 
 .contact button {
-    padding: 10px 20px;
-    margin-top: 10px;
-    font-size: 18px;
+    padding: 1vh 2vw;
+    margin-top: 1vh;
+    font-size: 2vw;
     background: #ff9800;
     border: none;
     color: white;
@@ -176,7 +179,7 @@ nav ul li a:hover {
 /* Footer */
 footer {
     text-align: center;
-    padding: 20px;
+    padding: 2vh;
     background: #333;
     color: white;
 }
