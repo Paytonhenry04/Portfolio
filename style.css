@@ -16,7 +16,7 @@ body {
 
 /* Header */
 header {
-    background: #222;
+    background: #363636;
     color: #fff;
     padding: 0.1vh;
     text-align: center;
@@ -72,7 +72,7 @@ nav ul li a:hover {
 .hero .btn {
     display: inline-block;
     padding: 1.2vh 2.5vw;
-    background: #9e9e9e;
+    background: #363636;
     color: white;
     text-decoration: none;
     border-radius: 1vw;
