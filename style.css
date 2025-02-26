@@ -58,15 +58,45 @@ nav ul li a:hover {
     padding: 0;
 }
 
+@media (max-width: 600px) {
+    .hero {
+    display: flex;
+    font-size: 2vw;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+    background: linear-gradient(to right, #5f0000, #140014);
+    color: white;
+    padding: 0;
+    }
+}
+
 .hero h2 {
     font-size: 4vw;
     margin-bottom: 1vh;
+}
+
+@media (max-width: 600px) {
+    .hero h2 {
+        font-size: 5vw;
+        margin-bottom: 1vh;
+    }
 }
 
 .hero p {
     font-size: 2.5vw;
     padding: 1vh;
     margin-bottom: 2vh;
+}
+
+@media (max-width: 600px) {
+    .hero p {
+        font-size: 4vw;
+        padding: 1vh;
+        margin-bottom: 2vh;
+    }
 }
 
 .hero .btn {
