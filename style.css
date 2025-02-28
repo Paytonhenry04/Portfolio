@@ -35,6 +35,7 @@ nav ul {
       justify-items: center;             /* Center items within each column */
       align-items: center;
     }
+}
 
 nav ul li {
     display: inline;
@@ -315,5 +316,4 @@ footer {
     padding: 2vh;
     background: #333;
     color: white;
-}
 }
