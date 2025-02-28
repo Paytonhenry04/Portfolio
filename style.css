@@ -28,16 +28,52 @@ nav ul {
     padding: 0;
 }
 
+@media (max-width: 600px) {
+    nav ul {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr); /* Two equal-width columns */
+      justify-items: center;             /* Center items within each column */
+      align-items: center;
+    }
+
 nav ul li {
     display: inline;
     margin: 4vw;
 }
 
+@media (max-width: 600px) {
+    nav ul li a {
+        align-items: center;
+        flex-direction: column;
+        margin: 0.5vh;
+    }
+}
+
+
+@media (max-width:600px){
+    header {
+        background: #363636;
+        height: 20vh;
+    }
+}
+
 nav ul li a {
     color: #fff;
     text-decoration: none;
-    font-family: monospace;
+    font-family: 'Poppins', sans-serif;
     font-size: 3vw;
+}
+
+@media (max-width: 600px) {
+    nav ul li a {
+        color: #fff;
+        text-decoration: none;
+        font-family: 'Poppins', sans-serif;
+        font-size: 5vw;
+        margin: 0vh;
+        align-items: left;
+        flex-direction: column;
+    }
 }
 
 nav ul li a:hover {
@@ -129,7 +165,7 @@ nav ul li a:hover {
 @media (max-width: 600px) {
     .about {
         width: 90vw;
-        height: 90vh;
+        height: 110vh;
         margin: 1vh auto;
         padding: 5vh;
         background: rgb(199, 199, 199);
@@ -279,4 +315,5 @@ footer {
     padding: 2vh;
     background: #333;
     color: white;
+}
 }
