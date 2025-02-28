@@ -151,7 +151,7 @@ nav ul li a:hover {
 
 @media (max-width: 600px) {
     .about img {
-        width: 80vw;
+        width: 30vw;
         height: 25vh;
         align-items: center;
         border-radius: 0%;
@@ -177,10 +177,29 @@ nav ul li a:hover {
     justify-content: center; /* Centers items when they don’t fill a row */
 }
 
+@media (max-width: 600px){
+    .project-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 5vw;
+        padding: 2vw;
+        justify-content: center; /* Centers items when they don’t fill a row */
+    }
+    
+}
+
 .project-card img {
     width: 90%;
     height: 50vh;
     object-fit: fill;
+}
+
+@media (max-width: 600px) {
+    .project-card img {
+        width: 85vw;
+        height: 50vh;
+        object-fit: fill;
+    }
 }
 
 .project-card {
@@ -193,6 +212,22 @@ nav ul li a:hover {
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
+}
+
+@media (max-width: 600px) {
+    .project-card {
+        background: white;
+        width: 80vw;
+        align-items: center;
+        padding: 2vw;
+        border-radius: 1vw;
+        box-shadow: 0px 0px 1vw rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease-in-out;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+    }
 }
 
 .project-card:hover {
