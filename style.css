@@ -128,13 +128,13 @@ nav ul li a:hover {
 
 @media (max-width: 600px) {
     .about {
-        width: 70vw;
-        height: 70vh;
-        margin: 5vh auto;
+        width: 90vw;
+        height: 90vh;
+        margin: 1vh auto;
         padding: 5vh;
         background: rgb(199, 199, 199);
         text-align: center;
-        font-size: 2vw;
+        font-size: 4vw;
         border-radius: 5vw;
         box-shadow: inset 0 0 6vw rgba(255, 255, 255, 1), 0 0 5vw rgba(0, 0, 0, 0.2);
     }
@@ -151,10 +151,10 @@ nav ul li a:hover {
 
 @media (max-width: 600px) {
     .about img {
-        width: 30vw;
+        width: 50vw;
         height: 25vh;
         align-items: center;
-        border-radius: 0%;
+        border-radius: 5%;
         margin-top: 4vh;
         margin-bottom: 4vh;
         scale: 1.1;
@@ -183,10 +183,10 @@ nav ul li a:hover {
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: 5vw;
         padding: 2vw;
-        justify-content: center; /* Centers items when they don’t fill a row */
-    }
-    
+        justify-items: center; /* Centers items within each grid cell */
+    }    
 }
+    
 
 .project-card img {
     width: 90%;
@@ -196,9 +196,10 @@ nav ul li a:hover {
 
 @media (max-width: 600px) {
     .project-card img {
-        width: 85vw;
-        height: 50vh;
+        width: 70vw;
+        height: 60vh;
         object-fit: fill;
+        align-items: center;
     }
 }
 
@@ -211,6 +212,7 @@ nav ul li a:hover {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: center;
     height: 100%;
 }
 
