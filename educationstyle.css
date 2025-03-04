@@ -9,10 +9,11 @@ body {
     background: white;
     color: #333;
     line-height: 1.6;
+    text-align: center;
 }
 
 header {
-    background: #222;
+    background: #363636;
     color: #fff;
     padding: 0.1vh;
     text-align: center;
@@ -22,6 +23,22 @@ nav ul {
     list-style: none;
     text-align: center;
     padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 4vw;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-family: monospace;
+    font-size: 3vw;
+}
+
+nav ul li a:hover {
+    color: #ff9800;
 }
 
 table {
@@ -34,7 +51,6 @@ td, th {
     border: 1px solid #000000;
     text-align: center;
     padding: 2vh;
-    
 }
 
 .classes {
@@ -61,35 +77,6 @@ tr:nth-child(even) {
     background-color: #dddddd;
 }
 
-nav ul li {
-    display: inline;
-    margin: 4vw;
-}
-
-nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-family: monospace;
-    font-size: 3vw;
-}
-
-nav ul li a:hover {
-    color: #ff9800;
-}
-
-
-.education h2 {
-    display: flex;
-    font-size: 3vw;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    height: 5vh;
-    background: white;
-    color: black;
-    padding: 0;
-}
 
 .education nav ul {
     text-align: left;
@@ -108,7 +95,7 @@ nav ul li a:hover {
     color: #ff9800;
 }
 
-.classes h2{
+.classes h2 {
     display: flex;
     font-size: 2vw;
     flex-direction: column;
@@ -121,3 +108,48 @@ nav ul li a:hover {
     padding: 0;
 }
 
+@media (max-width: 600px) {
+    header {
+        background: #363636;
+        height: 20vh;
+    }
+    nav ul {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* Two equal-width columns */
+        justify-items: center;             /* Center items within each column */
+        align-items: center;
+    }
+    nav ul li a {
+        color: #fff;
+        text-decoration: none;
+        font-family: 'Poppins', sans-serif;
+        font-size: 5vw;
+        margin: 0vh;
+        align-items: left;
+        flex-direction: column;
+    }
+    table {
+        font-family: 'Poppins', sans-serif;
+        border-collapse: collapse;
+        width: 1vw;
+        margin: 0 auto;
+    }
+    .classes td, th {
+        border: 1px solid #000000;
+        text-align: center;
+        padding: 0.5vh;
+    }
+    .futureClasses td, th {
+        border: 1px solid #000000;
+        text-align: center;
+        padding: 0.1vh;
+    }
+    .classes {
+        padding: 2.5vh;
+        text-align: center;
+    }
+    .futureClasses {
+        padding: 2.5vw;
+        text-align: center;
+    }
+}
