@@ -24,6 +24,43 @@ nav ul {
     padding: 0;
 }
 
+table {
+    font-family: 'Poppins', sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #000000;
+    text-align: center;
+    padding: 2vh;
+    
+}
+
+.classes {
+    padding: 2.5vh;
+    text-align: center;
+}
+
+h1 {
+    margin: 1vh;
+    font-size: 3vw;
+}
+
+h2 {
+    margin: 1vh;
+    font-size: 3vw;
+}
+
+.futureClasses {
+    padding: 2.5vh;
+    text-align: center;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
 nav ul li {
     display: inline;
     margin: 4vw;
