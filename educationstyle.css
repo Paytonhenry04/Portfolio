@@ -33,7 +33,7 @@ nav ul li {
 nav ul li a {
     color: #fff;
     text-decoration: none;
-    font-family: monospace;
+    font-family: 'Poppins', sans-serif;
     font-size: 3vw;
 }
 
@@ -68,6 +68,10 @@ h2 {
     font-size: 3vw;
 }
 
+.education h2 {
+    font-size: 4vw;
+}
+
 .futureClasses {
     padding: 2.5vh;
     text-align: center;
@@ -77,12 +81,16 @@ tr:nth-child(even) {
     background-color: #dddddd;
 }
 
-
-.education nav ul {
-    text-align: left;
-    justify-content: left;
+.education nav p a {
+    font-size: 2vw;
+    font-family: 'Poppins', sans-serif;
+    color: black;
     align-items: left;
-    padding: 1vw;
+    padding:  1vh;
+}
+
+.education p {
+    text-align: left;
 }
 
 .education p a {
@@ -137,19 +145,39 @@ tr:nth-child(even) {
     .classes td, th {
         border: 1px solid #000000;
         text-align: center;
-        padding: 0.5vh;
+        padding: 0.3vh;
+        font-size: 3vw;
     }
     .futureClasses td, th {
         border: 1px solid #000000;
         text-align: center;
-        padding: 0.1vh;
+        padding: 0.3vh;
+        font-size: 3vw;
     }
     .classes {
         padding: 2.5vh;
         text-align: center;
     }
+    .classes h1 {
+        margin: 1vh;
+        font-size: 6vw;
+    }
     .futureClasses {
         padding: 2.5vw;
         text-align: center;
+    }
+    .futureClasses h2 {
+        margin: 1vh;
+        font-size: 6vw;
+    }
+    .education h2 {
+        font-size: 7vw;
+    }
+    .education nav p a {
+        font-size: 4vw;
+        font-family: 'Poppins', sans-serif;
+        color: black;
+        align-items: left;
+        padding: 2vh;
     }
 }
