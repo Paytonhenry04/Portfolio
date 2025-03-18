@@ -6,7 +6,7 @@
 }
 
 body {
-    background: white;
+    background: linear-gradient(to right, #5f0000, #140014);
     color: #333;
     line-height: 1.6;
     text-align: center;
@@ -51,20 +51,24 @@ td, th {
     border: 1px solid #000000;
     text-align: center;
     padding: 2vh;
+    color: #000000;
 }
 
 .classes {
     padding: 2.5vh;
+    color: #ffff;
     text-align: center;
 }
 
 h1 {
     margin: 1vh;
     font-size: 3vw;
+    color: #ffff;
 }
 
 h2 {
     margin: 1vh;
+    color: #ffff;
     font-size: 3vw;
 }
 
@@ -74,29 +78,35 @@ h2 {
 
 .futureClasses {
     padding: 2.5vh;
+    color: #ffff;
     text-align: center;
 }
 
 tr:nth-child(even) {
-    background-color: #dddddd;
+    background-color: #afafaf;
+}
+
+tr:nth-child(odd) {
+    background-color: #ffffff;
 }
 
 .education nav p a {
     font-size: 2vw;
     font-family: 'Poppins', sans-serif;
-    color: black;
+    color: #ffffff;
     align-items: left;
     padding:  1vh;
 }
 
 .education p {
     text-align: left;
+    
 }
 
 .education p a {
     font-size: 1.2vw;
     font-family: 'Poppins', sans-serif;
-    color: black;
+    
 }
 
 .education p a:hover {
