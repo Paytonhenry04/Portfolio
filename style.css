@@ -143,6 +143,19 @@ nav ul li a:hover {
     transform: scale(1.05);
 }
 
+.project-card:hover img {
+    outline: 1px solid orange;
+}
+
+.project-card nav ul li a {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    height: 50vh;
+    object-fit: fill;
+    text-align: center;
+}
+
 /* Contact Section */
 .contact {
     text-align: center;
