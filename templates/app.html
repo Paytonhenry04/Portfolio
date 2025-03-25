@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Email App</title>
-    <script type="text/javascript" src="/eel.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -57,11 +56,19 @@
         button:hover {
             background: #45a049;
         }
-        #message {
-            margin-top: 20px;
+        /* Inline message styling */
+        .message {
+            margin-left: 20px;
             font-weight: bold;
             color: #333;
-            white-space: pre-wrap;
+            vertical-align: middle;
+        }
+        .section .message {
+            margin-left: 20px;
+            font-weight: bold;
+            color: #333;
+            vertical-align: middle;
+            font-size: 1px;
         }
     </style>
 </head>
@@ -83,10 +90,11 @@
                 <label for="password">App-Specific Password:</label>
                 <input type="password" id="password" required><br><br>
                 <button type="submit">Send Test Email</button>
+                <span id="message" class="message"></span>
             </form>
         </div>
 
-        <!-- Section for Running Email Scimmer -->
+        <!-- Section for Running Email Skimmer -->
         <div class="section">
             <h2>Email Skimmer</h2>
             <form onsubmit="runScimmer(); return false;">
@@ -102,18 +110,28 @@
                     <option value="oldest">Oldest</option>
                 </select><br><br>
                 <button type="submit">Run Email Skimmer</button>
+                <span id="scim_message" class="message"></span>
             </form>
         </div>
-
-        <!-- Message Display -->
-        <div id="message"></div>
     </div>
 
     <script type="text/javascript">
         function sendFakeEmail() {
             var email = document.getElementById("email").value;
             var password = document.getElementById("password").value;
-            eel.send_fake_email_from_app(email, password);
+            fetch('/send_fake_email', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email: email, password: password })
+            })
+            .then(response => response.json())
+            .then(data => show_message(data.message))
+            .catch(error => {
+                console.error('Error:', error);
+                show_message("An error occurred.");
+            });
         }
 
         function runScimmer() {
@@ -121,12 +139,27 @@
             var password = document.getElementById("scim_password").value;
             var num_emails = document.getElementById("num_emails").value;
             var order_choice = document.getElementById("order_choice").value;
-            eel.run_email_scimmer_from_app(email, password, num_emails, order_choice);
+            fetch('/run_email_scimmer', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email: email, password: password, num_emails: num_emails, order_choice: order_choice })
+            })
+            .then(response => response.json())
+            .then(data => show_scim_message(data.message))
+            .catch(error => {
+                console.error('Error:', error);
+                show_scim_message("An error occurred.");
+            });
         }
 
-        eel.expose(show_message);
         function show_message(message) {
             document.getElementById("message").innerHTML = message;
+        }
+
+        function show_scim_message(message) {
+            document.getElementById("scim_message").innerHTML = message;
         }
     </script>
 </body>

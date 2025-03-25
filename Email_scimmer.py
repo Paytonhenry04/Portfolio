@@ -19,7 +19,6 @@ def check_phishing(email_body):
     suspicious = []
     for url in urls:
         parsed = urlparse(url)
-        # Check for IP address or .xyz TLD
         if re.match(r'\d+\.\d+\.\d+\.\d+', parsed.netloc):
             suspicious.append(url)
         elif parsed.netloc.endswith('.xyz'):
@@ -29,7 +28,9 @@ def check_phishing(email_body):
 def check_attachment(file_path):
     suspicious_extensions = ['.exe', '.bat', '.js']
     _, ext = os.path.splitext(file_path)
-    return (ext.lower() in suspicious_extensions)
+    if ext.lower() in suspicious_extensions:
+        return True
+    return False
 
 def process_email_message(msg):
     email_text = ""
@@ -39,16 +40,12 @@ def process_email_message(msg):
         for part in msg.walk():
             content_type = part.get_content_type()
             content_disposition = str(part.get("Content-Disposition"))
-
-            # Collect text
             if content_type == "text/plain" and "attachment" not in content_disposition:
                 try:
                     part_text = part.get_payload(decode=True).decode()
-                except:
+                except Exception:
                     part_text = ""
                 email_text += part_text
-
-            # Process attachments
             if "attachment" in content_disposition:
                 filename = part.get_filename()
                 if filename:
@@ -66,10 +63,9 @@ def process_email_message(msg):
                         if os.path.exists(temp_path):
                             os.remove(temp_path)
     else:
-        # Non-multipart
         try:
             email_text = msg.get_payload(decode=True).decode()
-        except:
+        except Exception:
             email_text = ""
 
     is_spam = check_spam(email_text)
@@ -81,8 +77,8 @@ def process_email_message(msg):
         "suspicious_attachment": attachments_flag
     }
 
-def connect_and_process_emails_gui(email_user, email_pass, num_emails, order_choice,
-                                   imap_url="imap.gmail.com", mailbox="INBOX"):
+def connect_and_process_emails_gui(email_user, email_pass, num_emails, order_choice, imap_url="imap.gmail.com",
+                                   mailbox="INBOX"):
     output = []
     try:
         mail = imaplib.IMAP4_SSL(imap_url)
@@ -91,14 +87,16 @@ def connect_and_process_emails_gui(email_user, email_pass, num_emails, order_cho
         output.append("Login failed: " + str(e))
         return "<br>".join(output)
 
-    status, _ = mail.select(mailbox)
+    status, messages = mail.select(mailbox)
     if status != "OK":
-        output.append(f"Failed to open mailbox: {mailbox}")
+        msg = f"Failed to open mailbox: {mailbox}"
+        output.append(msg)
         return "<br>".join(output)
 
     status, message_numbers = mail.search(None, "ALL")
     if status != "OK":
-        output.append("Failed to retrieve emails.")
+        msg = "Failed to retrieve emails."
+        output.append(msg)
         return "<br>".join(output)
 
     email_ids = message_numbers[0].split()
@@ -131,7 +129,7 @@ def connect_and_process_emails_gui(email_user, email_pass, num_emails, order_cho
         if isinstance(decoded_subject, bytes):
             try:
                 decoded_subject = decoded_subject.decode(encoding if encoding else "utf-8")
-            except:
+            except Exception:
                 decoded_subject = decoded_subject.decode("utf-8", errors="ignore")
 
         results = process_email_message(msg_obj)
@@ -143,10 +141,17 @@ def connect_and_process_emails_gui(email_user, email_pass, num_emails, order_cho
         output.append("  Suspicious URLs: " + str(results["phishing_urls"]) + "<br>")
         output.append("  Suspicious Attachment Found: " + str(results["suspicious_attachment"]) + "<br>")
         output.append("<hr>")
-
     mail.logout()
     output.append("Email scanning completed.")
     return "".join(output)
 
 def run_email_scimmer(email_user, email_pass, num_emails, order_choice):
     return connect_and_process_emails_gui(email_user, email_pass, num_emails, order_choice)
+
+if __name__ == "__main__":
+    print("Email Security Tool")
+    print("===================")
+    email_user = input("Enter your email address: ").strip()
+    email_pass = input("Enter your email password or app-specific password: ").strip()
+    result = connect_and_process_emails_gui(email_user, email_pass, 5, "newest")
+    print(result)
