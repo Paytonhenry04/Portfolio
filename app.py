@@ -35,4 +35,5 @@ def run_email_scimmer_route():
         return jsonify({"message": "Error running email scimmer."})
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # For local testing only; Heroku will use Gunicorn.
+    app.run(host='0.0.0.0', port=5000)
