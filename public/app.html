@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Email Scimmer UI</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        async function runEmailScimmer() {
+            const senderEmail = document.getElementById("senderEmail").value;
+            const appPassword = document.getElementById("appPassword").value;
+            const numEmails = document.getElementById("numEmails").value;
+            const orderChoice = document.getElementById("orderChoice").value;
+            document.getElementById("result").textContent = "Running email scimmer...";
+            try {
+                const response = await fetch("/api/run_email_scimmer", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        email: senderEmail,
+                        password: appPassword,
+                        num_emails: numEmails,
+                        order_choice: orderChoice
+                    })
+                });
+                const data = await response.json();
+                document.getElementById("result").textContent = data.message;
+            } catch (error) {
+                document.getElementById("result").textContent = "Error running email scimmer";
+                console.error(error);
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Email Scimmer</h1>
+    <input type="email" id="senderEmail" placeholder="Your Email" required>
+    <input type="password" id="appPassword" placeholder="App Password" required>
+    <input type="number" id="numEmails" placeholder="Number of Emails" required>
+    <select id="orderChoice">
+        <option value="asc">Ascending</option>
+        <option value="desc">Descending</option>
+    </select>
+    <button onclick="runEmailScimmer()">Run Email Scimmer</button>
+    <p id="result"></p>
+</body>
+</html>
