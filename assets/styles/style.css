@@ -84,6 +84,18 @@ nav ul li a:hover {
     background: #444;
 }
 
+/* Typing cursor animation */
+.cursor {
+    animation: blink 1s infinite;
+    color: white;
+    font-weight: bold;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
 /* About Section */
 .about {
     width: 70vw;
