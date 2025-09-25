@@ -1,7 +1,7 @@
 // Typing animation for hero section
 document.addEventListener('DOMContentLoaded', function() {
     const heroText = document.querySelector('.hero h2');
-    const originalText = "Hello, I'm Payton Henry";
+    const originalText = "Hello, I'm Payton Henry.";
     
     // Clear the text initially
     heroText.textContent = '';
