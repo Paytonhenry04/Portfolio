@@ -114,7 +114,7 @@ nav ul li a:hover {
 
 .project-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-rows: repeat(auto-fit, minmax(300px, 1fr));
     gap: 5vw;
     padding: 2vw;
     justify-content: center; /* Centers items when they don’t fill a row */
