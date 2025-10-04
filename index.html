@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="assets/styles/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <header>
@@ -14,7 +16,7 @@
             <ul>
                 <li><a href="#about">About</a></li>
                 <li><a href="#portfolio">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#connect">Connect</a></li>
                 <li><a href="pages/education.html">Education</a></li>
             </ul>
         </nav>
@@ -42,13 +44,14 @@
         <div class="project-grid">
             <div class="project-card">
                 <h3>Gmail Skimmer</h3>
-                <p1>Log into your Gmail account, the code will go through your inbox and mark any possible threats.</p1>
-                <p2>Use this link to create an app specific password: <a href="https://myaccount.google.com/apppasswords" target="_blank">https://myaccount.google.com/apppasswords</a></p2>
-                <nav>
-                    <ul>
-                        <li><a href="templates/app.html"><img src="assets/images/Email_ss.png" ></a></li>
-                    </ul>
-                </nav>
+                <p1>A python application that scans your Gmail inbox for potential threats. Going through
+                    emails and tagging them with relevant labels. The app provided a fake spam/suspicious
+                    email for testing purposes.
+                </p1>
+                <div class="image-container">
+                    <img src="assets/images/Email_ss.png" >
+                    <img src="assets/images/emailScimmer.png" >
+                </div>
             </div>
             <div class="project-card">
                 <h3>Project 2</h3>
@@ -65,15 +68,26 @@
         </div>
     </section>
     
-    <section id="contact" class="contact">
-        <h2>Contact Me</h2>
+    <section id="connect" class="connect">
+        <h2>Connect with Me</h2>
         <form>
             <input type="text" placeholder="Your Name" required>
             <input type="email" placeholder="Your Email" required>
             <textarea placeholder="Your Message" required></textarea>
             <button type="submit">Send Message</button>
         </form>
-    </section>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/payton-e-henry/" target="_blank">
+                <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+            <a href="https://github.com/Paytonhenry04?tab=overview&from=2025-10-01&to=2025-10-04" target="_blank">
+                <i class="fab fa-github"></i> GitHub
+            </a>
+            <a href="https://app.joinhandshake.com/profiles/mbj49h" target="_blank">
+                <i class="fas fa-handshake"></i> Handshake
+            </a>
+        </div>
+    </section> 
     
     <footer>
         <p>&copy; 2025 My Portfolio. All rights reserved.</p>

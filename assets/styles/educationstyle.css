@@ -92,25 +92,36 @@ tr:nth-child(odd) {
 
 .education nav p a {
     font-size: 2vw;
-    font-family: 'Poppins', sans-serif;
     color: #ffffff;
-    align-items: left;
-    padding:  1vh;
+    padding: 1vh;
 }
 
 .education p {
     text-align: left;
-    
 }
 
 .education p a {
     font-size: 1.2vw;
-    font-family: 'Poppins', sans-serif;
-    
+    color: #ffffff;
 }
 
 .education p a:hover {
     color: #ff9800;
+}
+.futureClasses p a:hover {
+    color: #ff9800;
+}
+
+.futureClasses nav p {
+    font-size: 1.2vw;
+    color: #ffffff;
+    text-align: left;
+}
+
+.futureClasses nav p a {
+    font-size: 2vw;
+    color: #ffffff;
+    padding: 1vh;
 }
 
 .classes h2 {
@@ -129,13 +140,17 @@ tr:nth-child(odd) {
 @media (max-width: 600px) {
     header {
         background: #363636;
-        height: 20vh;
+        height: fit-content;
     }
     nav ul {
         display: grid;
         grid-template-columns: repeat(2, 1fr); /* Two equal-width columns */
         justify-items: center;             /* Center items within each column */
         align-items: center;
+        
+    }
+    nav ul li {
+        margin: 1vh;
     }
     nav ul li a {
         color: #fff;
@@ -145,8 +160,15 @@ tr:nth-child(odd) {
         margin: 0vh;
         align-items: left;
         flex-direction: column;
+       
     }
-    table {
+    .classes table {
+        font-family: 'Poppins', sans-serif;
+        border-collapse: collapse;
+        width: 1vw;
+        margin: 0 auto;
+    }
+    .futureClasses table {
         font-family: 'Poppins', sans-serif;
         border-collapse: collapse;
         width: 1vw;
@@ -168,15 +190,15 @@ tr:nth-child(odd) {
         padding: 2.5vh;
         text-align: center;
     }
-    .classes h1 {
-        margin: 1vh;
-        font-size: 6vw;
-    }
     .futureClasses {
         padding: 2.5vw;
         text-align: center;
     }
-    .futureClasses h2 {
+    .classes h1 {
+        margin: 1vh;
+        font-size: 6vw;
+    }
+    .futureClasses h1 {
         margin: 1vh;
         font-size: 6vw;
     }
@@ -186,8 +208,20 @@ tr:nth-child(odd) {
     .education nav p a {
         font-size: 4vw;
         font-family: 'Poppins', sans-serif;
-        color: black;
-        align-items: left;
+        color: rgb(255, 255, 255);
+        text-align: left;
         padding: 2vh;
+        display: block;
+    }
+    .futureClasses nav p {
+        text-align: left;
+    }
+    .futureClasses nav p a {
+        font-size: 4vw;
+        font-family: 'Poppins', sans-serif;
+        color: rgb(255, 255, 255);
+        text-align: left;
+        padding: 2vh;
+        display: block;
     }
 }
