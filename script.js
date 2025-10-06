@@ -40,3 +40,22 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+
+// Auto-grow textarea functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const textarea = document.getElementById('messageTextarea');
+    
+    if (textarea) {
+        // Function to adjust textarea height
+        function adjustTextareaHeight() {
+            textarea.style.height = 'auto';
+            textarea.style.height = textarea.scrollHeight + 'px';
+        }
+        
+        // Adjust on input
+        textarea.addEventListener('input', adjustTextareaHeight);
+        
+        // Initial adjustment
+        adjustTextareaHeight();
+    }
+});

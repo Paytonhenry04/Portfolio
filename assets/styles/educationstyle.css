@@ -60,7 +60,7 @@ td, th {
     text-align: center;
 }
 
-h1 {
+.education h1 {
     margin: 1vh;
     font-size: 3vw;
     color: #ffff;
@@ -73,7 +73,7 @@ h2 {
 }
 
 .education h2 {
-    font-size: 4vw;
+    font-size: 1.5vw;
 }
 
 .futureClasses {
@@ -202,8 +202,11 @@ tr:nth-child(odd) {
         margin: 1vh;
         font-size: 6vw;
     }
+    .education h1 {
+        font-size: 9vw;
+    }
     .education h2 {
-        font-size: 7vw;
+        font-size: 3vw;
     }
     .education nav p a {
         font-size: 4vw;

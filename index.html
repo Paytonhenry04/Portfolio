@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="assets/styles/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -25,7 +24,7 @@
     <section class="hero">
         <h2>Hello, I'm Payton Henry.</h2>
         <p>Coder &nbsp; | &nbsp; Website Developer &nbsp; | &nbsp; Designer</p>
-        <a href="#portfolio" class="btn">View My Work</a>
+        <a href="#resume" class="btn">View My Resume</a>
     </section>
 
     
@@ -38,7 +37,16 @@
         <p>"Trust in the Lord with all your heart and lean not on your own understanding; 
             in all your ways submit to him, and he will make your paths straight."</p>
     </section>
-    
+
+    <section id="resume" class="resume">
+        <h2>My Resume</h2>
+        <p>Click the button below to view or download my resume.</p>
+        <img src="assets/images/Resume.png" >
+        <div>
+            <a href="assets/images/Resume.png" class="btn" target="_blank" download>Download Resume</a>
+        </div>
+    </section>
+
     <section id="portfolio" class="portfolio">
         <h2>My Projects</h2>
         <div class="project-grid">
@@ -73,7 +81,7 @@
         <form>
             <input type="text" placeholder="Your Name" required>
             <input type="email" placeholder="Your Email" required>
-            <textarea placeholder="Your Message" required></textarea>
+            <textarea id="messageTextarea" placeholder="Your Message" required></textarea>
             <button type="submit">Send Message</button>
         </form>
         <div class="social-links">
@@ -90,7 +98,8 @@
     </section> 
     
     <footer>
-        <p>&copy; 2025 My Portfolio. All rights reserved.</p>
+        <p>Contact</p>
+        <p>Email: payton.e.henry04@gmail.com</p>
     </footer>
     
     <!-- Link to JavaScript file -->
