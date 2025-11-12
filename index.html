@@ -109,25 +109,31 @@
     <!-- SALESFORCE LIGHTNING OUT -->
     <script src="https://computing-app-5585--dev3.sandbox.lightning.force.com/lightning/lightning.out.js"></script>
     <script>
-        const SALESFORCE_DOMAIN = 'https://computing-app-5585--dev3.sandbox.lightning.force.com/lightning/page/home';
+        const SALESFORCE_DOMAIN = 'https://computing-app-5585--dev3.sandbox.lightning.force.com';
         const AURA_APP_NAME = 'c:LightningOutApp';
         const LWC_COMPONENT_NAME = 'c:testLightningOut';
         const SESSION_ID = '00DOt00000g5YLp!AQEAQNw1IxKs3v1JhdYhw88x4DeqCla9nBlY17Qrp4mk.d.HQBKPmJTD0VeuIsqUsPSPHP0LaVRqCjDoGzsGe9wx2jUIFP00';
-
+        
         $Lightning.use(
             AURA_APP_NAME,
             function() {
+                console.log('Lightning app loaded, creating component...');
                 $Lightning.createComponent(
                     LWC_COMPONENT_NAME,
                     {},
                     'lightningContainer',
                     function(component) {
-                        console.log('Component created successfully');
+                        console.log('Component created successfully', component);
                     }
                 );
             },
             SALESFORCE_DOMAIN,
-            SESSION_ID
+            SESSION_ID,
+            function(error) {
+                console.error('Lightning Out error:', error);
+                document.getElementById('lightningContainer').innerHTML = 
+                    '<div style="color: red; padding: 20px;">Error: ' + error + '</div>';
+            }
         );
     </script>
     
