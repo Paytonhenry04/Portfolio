@@ -198,6 +198,12 @@ nav ul li a:hover {
     border-radius: 0.5rem;
 }
 
+/* Golf app images - smaller size */
+.golf-app-images img {
+    width: 15vw !important;
+    height: auto !important;
+}
+
 .project-card {
     /* background: rgb(226, 226, 226); */
     padding: 2vw;
