@@ -37,14 +37,14 @@ nav ul {
 
 nav ul li {
     display: inline;
-    margin: 4vw;
+    margin: 2vw;
 }
 
 nav ul li a {
     color: #fff;
     text-decoration: none;
     font-family: 'Poppins', sans-serif;
-    font-size: 3vw;
+    font-size: 1.8vw;
 }
 
 nav ul li a:hover {
@@ -66,12 +66,12 @@ nav ul li a:hover {
 }
 
 .hero h2 {
-    font-size: 4vw;
+    font-size: 3vw;
     margin-bottom: 1vh;
 }
 
 .hero p {
-    font-size: 2.5vw;
+    font-size: 1.5vw;
     padding: 1vh;
     margin-bottom: 2vh;
 }
@@ -104,25 +104,25 @@ nav ul li a:hover {
 
 /* About Section */
 .about {
-    width: 70vw;
-    max-width: 80vw;
+    width: 55vw;
+    max-width: 65vw;
     height: fit-content;
     margin: 5vh auto;
-    padding: 5vh 3vw;
+    padding: 3vh 2vw;
     background: rgb(226, 226, 226);
     text-align: center;
-    font-size: 1.3vw;
-    border-radius: 3vw;
+    font-size: 1vw;
+    border-radius: 2vw;
     box-shadow: inset 0 0 6vw rgba(255, 255, 255, 1), 0 0 3vw rgba(0, 0, 0, 0.2);
 }
 
 .about img {
-    width: 30%;
-    height: 25%;
+    width: 20%;
+    height: auto;
     border-radius: 0%;
-    margin-top: 4vh;
-    margin-bottom: 4vh;
-    scale: 1.1;
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+    scale: 1;
 }
 
 .resume {
@@ -213,6 +213,12 @@ nav ul li a:hover {
     height: auto !important;
 }
 
+/* Gmail skimmer images - smaller size */
+.gmail-images img {
+    width: 25vw !important;
+    height: auto !important;
+}
+
 .project-card {
     /* background: rgb(226, 226, 226); */
     padding: 2vw;
@@ -285,20 +291,20 @@ nav ul li a:hover {
 .social-links {
     display: flex;
     justify-content: center;
-    gap: 3vw;
-    margin-top: 4vh;
+    gap: 2vw;
+    margin-top: 3vh;
 }
 
 .social-links a {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    padding: 1.5vh 3vw;
+    gap: 0.3rem;
+    padding: 1vh 2vw;
     background: #363636;
     color: white;
     text-decoration: none;
     border-radius: 0.5rem;
-    font-size: 1.5vw;
+    font-size: 1vw;
     transition: all 0.3s ease;
 }
 
@@ -308,7 +314,7 @@ nav ul li a:hover {
 }
 
 .social-links a i {
-    font-size: 2vw;
+    font-size: 1.2vw;
 }
 
 /* Footer */
