@@ -142,6 +142,16 @@ nav ul li a:hover {
     height: auto;
 
 }
+.resume-pdf {
+    width: 70vw;
+    max-width: 900px;
+    height: 80vh;
+    min-height: 600px;
+    margin: 2vh auto;
+    border: 2px solid #fff;
+    border-radius: 0.5rem;
+    display: block;
+}
 .resume div a {
     margin: 2vh auto;
     padding: 1vh;
