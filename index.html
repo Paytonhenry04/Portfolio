@@ -41,9 +41,9 @@
     <section id="resume" class="resume">
         <h2>My Resume</h2>
         <p>Click the button below to view or download my resume.</p>
-        <img src="assets/images/Resume.png" >
+        <img src="assets/images/UpdatedResume.pdf" >
         <div>
-            <a href="assets/images/Resume.png" class="btn" target="_blank" download>Download Resume</a>
+            <a href="assets/images/UpdatedResume.pdf" class="btn" target="_blank" download>Download Resume</a>
         </div>
     </section>
 
@@ -62,12 +62,23 @@
                 </div>
             </div>
             
-            <!-- PROJECT 2: SALESFORCE LIGHTNING WEB COMPONENT -->
             <div class="project-card">
-                <h3>Project 2</h3>
-                <p>Salesforce Lightning Web Component integration.</p>
+                <h3>Bogie Busters - Golf Tracking App</h3>
+                <p1>This is a golf tracking mobile app built with Flutter/Dart and Firebase that uses GPS positioning and Google Maps SDK to help
+                golfers track their shots, distances, and rounds on actual golf courses with real-time location data. The app integrates
+                OpenStreetMap's Overpass API to fetch detailed course layouts and uses Firestore for real-time data syncing,
+                SharedPreferences for local game state persistence, and Firebase Storage for media management. It includes social
+                features like friend requests, likes, and comments through Firestore streams, with Firebase Authentication handling user
+                management.</p1>
                 <div id="lightningContainer">
-                    <div style="text-align: center; color: #ffffff; padding: 40px;"></div>
+                    <div class="image-container">
+                        <img src="assets/images/coursesScreen.jpg">
+                        <img src="assets/images/previewScreen.jpg">
+                        <img src="assets/images/detailsScreen.jpg">
+                        <img src="assets/images/InRound.jpg">
+                        <img src="assets/images/endRound.jpg">
+                        <img src="assets/images/friendsScreen.jpg">
+                    </div>
                 </div>
             </div>
             
@@ -105,37 +116,6 @@
         <p>Contact</p>
         <p>Email: payton.e.henry04@gmail.com</p>
     </footer>
-    
-    <!-- SALESFORCE LIGHTNING OUT -->
-    <script src="https://computing-app-5585--dev3.sandbox.lightning.force.com/lightning/lightning.out.js"></script>
-    <script>
-        const SALESFORCE_DOMAIN = 'https://computing-app-5585--dev3.sandbox.lightning.force.com';
-        const AURA_APP_NAME = 'c:LightningOutApp';
-        const LWC_COMPONENT_NAME = 'c:testLightningOut';
-        const SESSION_ID = '00DOt00000g5YLp!AQEAQOmHDa8m71U6ZwcdEgjw6P3pGa4Mr41.tAlrxq4SvreETuA0JMxax02a8_vAZ3Y8PISfDlxmpNXZ5gtibAf343X_ut6t';
-        
-        $Lightning.use(
-            AURA_APP_NAME,
-            function() {
-                console.log('Lightning app loaded, creating component...');
-                $Lightning.createComponent(
-                    LWC_COMPONENT_NAME,
-                    {},
-                    'lightningContainer',
-                    function(component) {
-                        console.log('Component created successfully', component);
-                    }
-                );
-            },
-            SALESFORCE_DOMAIN,
-            SESSION_ID,
-            function(error) {
-                console.error('Lightning Out error:', error);
-                document.getElementById('lightningContainer').innerHTML = 
-                    '<div style="color: red; padding: 20px;">Error: ' + error + '</div>';
-            }
-        );
-    </script>
     
     <!-- Link to JavaScript file -->
     <script src="script.js"></script>
