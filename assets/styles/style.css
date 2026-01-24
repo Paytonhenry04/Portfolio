@@ -145,10 +145,9 @@ nav ul li a:hover {
 .resume-pdf {
     width: 70vw;
     max-width: 900px;
-    height: 80vh;
+    height: 90vh;
     min-height: 600px;
     margin: 2vh auto;
-    border: 2px solid #fff;
     border-radius: 0.5rem;
     display: block;
 }
