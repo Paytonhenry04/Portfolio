@@ -1,3 +1,42 @@
+// Initialize EmailJS
+(function() {
+    emailjs.init("Fkeo8O2APo1iRktRh"); // Replace with your EmailJS public key
+})();
+
+// Contact form submission
+document.addEventListener('DOMContentLoaded', function() {
+    const contactForm = document.getElementById('contact-form');
+    const formStatus = document.getElementById('form-status');
+    
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show sending message
+            formStatus.textContent = 'Sending...';
+            formStatus.style.color = '#fff';
+            formStatus.style.marginTop = '1vh';
+            
+            // Send email using EmailJS
+            emailjs.sendForm('service_u9gg547', 'template_j9w31lj', this)
+                .then(function() {
+                    formStatus.textContent = 'Message sent successfully!';
+                    formStatus.style.color = '#4CAF50';
+                    contactForm.reset();
+                    
+                    // Clear status message after 5 seconds
+                    setTimeout(() => {
+                        formStatus.textContent = '';
+                    }, 5000);
+                }, function(error) {
+                    formStatus.textContent = 'Failed to send message. Please try again.';
+                    formStatus.style.color = '#ff5722';
+                    console.error('EmailJS error:', error);
+                });
+        });
+    }
+});
+
 // Typing animation for hero section
 document.addEventListener('DOMContentLoaded', function() {
     const heroText = document.querySelector('.hero h2');

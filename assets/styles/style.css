@@ -259,6 +259,12 @@ nav ul li a:hover {
     margin: auto;
 }
 
+#form-status {
+    font-size: 1.2vw;
+    margin-top: 1vh;
+    min-height: 2vh;
+}
+
 .connect input,
 .connect textarea {
     width: 100%;
