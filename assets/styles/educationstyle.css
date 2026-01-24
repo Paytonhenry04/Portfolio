@@ -27,14 +27,14 @@ nav ul {
 
 nav ul li {
     display: inline;
-    margin: 4vw;
+    margin: 2vw;
 }
 
 nav ul li a {
     color: #fff;
     text-decoration: none;
     font-family: 'Poppins', sans-serif;
-    font-size: 3vw;
+    font-size: 1.8vw;
 }
 
 nav ul li a:hover {
@@ -62,7 +62,7 @@ td, th {
 
 .education h1 {
     margin: 1vh;
-    font-size: 3vw;
+    font-size: 2vw;
     color: #ffff;
 }
 
@@ -73,7 +73,7 @@ h2 {
 }
 
 .education h2 {
-    font-size: 1.5vw;
+    font-size: 1.2vw;
 }
 
 .futureClasses {
@@ -91,7 +91,7 @@ tr:nth-child(odd) {
 }
 
 .education nav p a {
-    font-size: 2vw;
+    font-size: 1.5vw;
     color: #ffffff;
     padding: 1vh;
 }
