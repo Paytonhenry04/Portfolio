@@ -3,165 +3,364 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Payton Edward Henry</title>
+    <title>Payton Henry, Portfolio</title>
+    <meta name="description" content="Payton Henry. Computer science student and developer. Projects in mobile apps, AI, cloud, and security.">
+    <script>document.documentElement.className += ' js';</script>
     <link rel="stylesheet" href="assets/styles/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- EmailJS SDK -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
+    <header class="site-header">
+        <div class="container nav">
+            <a href="#top" class="brand">Payton <span>Henry</span></a>
+            <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="nav-links">
                 <li><a href="#about">About</a></li>
+                <li><a href="#resume">Resume</a></li>
                 <li><a href="#portfolio">Projects</a></li>
                 <li><a href="#connect">Connect</a></li>
                 <li><a href="pages/education.html">Education</a></li>
             </ul>
-        </nav>
+        </div>
     </header>
-    
-    <section class="hero">
-        <h2>Hello, I'm Payton Henry.</h2>
-        <p>Coder &nbsp; | &nbsp; Website Developer &nbsp; | &nbsp; Designer</p>
-        <a href="#resume" class="btn">View My Resume</a>
-    </section>
 
-    
-    <section id="about" class="about">
-        <h2>About Me</h2>
-        <p>I am currently studying computer science with a concentration in machine learning at California Baptist University.
-        I am passionate about coding and design, and I enjoy creating practical code for real-life applications. Eager to learn new coding languages to be able to apply them in the feild.</p>
-        <img src="assets/images/pfp.jpg" >
-        <h4>Proverbs 3:5-6</h4>
-        <p>"Trust in the Lord with all your heart and lean not on your own understanding; 
-            in all your ways submit to him, and he will make your paths straight."</p>
-    </section>
-
-    <section id="resume" class="resume">
-        <h2>My Resume</h2>
-        <p>Click the button below to view or download my resume.</p>
-        <embed src="assets/images/UpdatedResume.pdf" type="application/pdf" class="resume-pdf" />
-        <div>
-            <a href="assets/images/UpdatedResume.pdf" class="btn" target="_blank" download>Download Resume</a>
-        </div>
-    </section>
-
-    <section id="portfolio" class="portfolio">
-        <h2>My Projects</h2>
-        <div class="project-grid">
-            <div class="project-card">
-                <h3>SnapDose &ndash; AI Diabetes Nutritionist</h3>
-                <p1 class="project-meta">Partnered with Ryan Stoffel, Elijah Tabor, Micah Suk, and Millie Anderson &nbsp;&middot;&nbsp; California Baptist University &nbsp;&middot;&nbsp; Jan 2026 &ndash; May 2026</p1>
-                <div class="snapdose-home">
-                    <img src="assets/images/SDhome2.jpg" alt="SnapDose home screen and dashboard">
+    <main id="top">
+        <section class="hero">
+            <div class="container hero-inner">
+                <p class="hero-kicker">Portfolio</p>
+                <h1 class="hero-title" data-typed="Hello, I'm Payton Henry."></h1>
+                <div class="hero-roles">
+                    <span>Coder</span>
+                    <span>Website Developer</span>
+                    <span>Designer</span>
                 </div>
-                <p1>SnapDose is a mobile application that helps diabetes patients count carbs instantly. Users snap a photo of their meal and get an AI-powered carbohydrate estimate in seconds instead of spending 5&ndash;10 minutes on manual calculation. The app tracks meal history, shows confidence for each estimate, identifies food items in photos, and monitors weekly trends. By making carb counting fast and easy, SnapDose helps patients make better food choices and manage their blood sugar more effectively.</p1>
-                <p1>SnapDose runs on a serverless Google Cloud Platform architecture. The React Native frontend uses Firebase Authentication and Firestore, with security rules keeping each user's data private. When a user uploads a meal photo, Firebase Storage triggers a Google Cloud Function that sends the image to the Google Gemini 3.1 Pro API with specialized nutrition prompts; Gemini returns carb estimates, confidence levels, detected foods, and notes, which are saved to Firestore with timestamps. The app caches data locally through Firestore's offline persistence. A Spring Boot REST API bridges the app to a simulated physical insulin pump built on a Tab5 microcontroller: when a user logs carbs and requests an insulin dose, the request is sent securely through Firebase Authentication to the Spring Boot API, which relays it to the Tab5 device. The Tab5 pump polls for pending bolus requests, delivers insulin, reports confirmation to Firestore, and maintains heartbeat communication. SnapDose also integrates the Dexcom API to pull real-time continuous glucose monitoring data, so users can view blood sugar alongside meal tracking and insulin dosing in one unified dashboard. The whole system scales automatically, with all user data stored securely and controlled by the user.</p1>
-                <div class="image-container snapdose-images">
-                    <img src="assets/images/SDdose.jpg" alt="SnapDose insulin dosing screen">
-                    <img src="assets/images/SDconfirm.jpg" alt="SnapDose dose confirmation sheet">
-                    <img src="assets/images/SDanalysis.jpg" alt="SnapDose AI analysis results screen">
-                    <img src="assets/images/SDweekly.jpg" alt="SnapDose weekly summary screen">
-                    <img src="assets/images/SDsettings.jpg" alt="SnapDose settings screen">
-                    <img src="assets/images/SDprofile.jpg" alt="SnapDose profile screen">
-                </div>
-                <div class="snapdose-arch">
-                    <img src="assets/images/SDarch.jpg" alt="SnapDose system architecture on Google Cloud Platform">
-                    <p1>System architecture (Google Cloud Platform)</p1>
+                <div class="hero-cta">
+                    <a href="#portfolio" class="btn btn-primary">View Projects</a>
+                    <a href="#resume" class="btn btn-ghost">Resume</a>
                 </div>
             </div>
+            <a href="#about" class="scroll-cue" aria-label="Scroll to content"><i class="fas fa-chevron-down"></i></a>
+        </section>
 
-            <div class="project-card">
-                <h3>Bogey Busters &ndash; Golf Tracking App</h3>
-                <p1 class="project-meta">Partnered with Ryan Stoffel &nbsp;&middot;&nbsp; Sept 2025 &ndash; Present</p1>
-                <p1>Bogey Busters is a golf tracking mobile app built with Flutter/Dart and Firebase that uses GPS positioning and the Google Maps SDK to help
-                golfers track their shots, distances, and rounds on actual golf courses with real-time location data. The app integrates
-                OpenStreetMap's Overpass API to fetch detailed course layouts and uses Firestore for real-time data syncing,
-                SharedPreferences for local game state persistence, and Firebase Storage for media management. It includes social
-                features like friend requests, likes, and comments through Firestore streams, with Firebase Authentication handling user
-                management.</p1>
-                <ul class="project-highlights">
-                    <li>Flutter mobile app with a Firebase backend handling user authentication, profile management, and real-time data sync across 40+ database documents.</li>
-                    <li>OpenStreetMap Overpass API integration that fetches course data &ndash; hole layouts, tee box coordinates, and green locations &ndash; with automatic caching to reduce API calls.</li>
-                    <li>Google Maps SDK with custom markers and polylines to track shot distances, calculate bearing angles, and display real-time GPS positioning during a round.</li>
-                    <li>Round persistence system using SharedPreferences that saves game state locally, letting users resume an incomplete round after an app restart.</li>
-                    <li>Social feed with friend requests, likes, and comments powered by Firestore real-time streams and Firebase Storage for profile pictures.</li>
-                </ul>
-                <div class="image-container golf-app-images">
-                    <img src="assets/images/coursesScreen.jpg">
-                    <img src="assets/images/previewScreen.jpg">
-                    <img src="assets/images/detailsScreen.jpg">
-                    <img src="assets/images/InRound.jpg">
-                    <img src="assets/images/endRound.jpg">
-                    <img src="assets/images/friendsScreen.jpg">
+        <section id="about" class="section">
+            <div class="container">
+                <div class="section-head reveal">
+                    <span class="eyebrow">About</span>
+                    <h2>A bit about me</h2>
                 </div>
-            </div>
-
-            <div class="project-card">
-                <h3>Python Email Skimmer</h3>
-                <p1 class="project-meta">Feb 2025 &ndash; Mar 2025</p1>
-                <p1>A Python-based email security application that scans a connected Gmail inbox for potential threats &ndash; spam detection, phishing URL identification, and suspicious attachment scanning &ndash; and tags messages with relevant labels.</p1>
-                <ul class="project-highlights">
-                    <li>Runs in an interactive web-based GUI built with <strong>eel</strong> that takes the user's Google/Gmail credentials plus options such as how many emails to scan and in what order.</li>
-                    <li>Detects spam, identifies phishing URLs, and scans for suspicious attachments across the inbox.</li>
-                    <li>Can generate test emails containing suspicious attachments, links, and spam text so the flagging behavior can be demonstrated safely.</li>
-                    <li>Tools: Python, PyCharm.</li>
-                </ul>
-                <div class="image-container skimmer-images">
-                    <img src="assets/images/Email_ss.png" >
-                    <img src="assets/images/emailScimmer.png" >
-                </div>
-            </div>
-
-            <div class="project-card">
-                <h3>Complete Stratocaster AutoCAD Model</h3>
-                <p1 class="project-meta">Partnered with Ian Deckman &nbsp;&middot;&nbsp; Oct 2024 &ndash; Dec 2024</p1>
-                <p1>A complete AutoCAD model of a Silvertone Stratocaster electric guitar, measured and modeled by a team of two. Every part was measured and dimensioned &ndash; with tolerances on small components down to &plusmn;0.001 inch &ndash; and drawn as full engineering drawings (ASME Y14.5) for both the body and the neck. The drawings below are interactive: scroll to zoom and drag to pan.</p1>
-                <div class="cad-embeds">
-                    <div class="cad-item">
-                        <embed src="assets/images/stratocaster-neck.pdf" type="application/pdf" class="cad-embed" />
-                        <a href="assets/images/stratocaster-neck.pdf" target="_blank">Open Neck Drawing (PDF)</a>
+                <div class="about-grid reveal">
+                    <div class="about-photo">
+                        <img src="assets/images/pfp.jpg" alt="Payton Henry">
                     </div>
-                    <div class="cad-item">
-                        <embed src="assets/images/stratocaster-body.pdf" type="application/pdf" class="cad-embed" />
-                        <a href="assets/images/stratocaster-body.pdf" target="_blank">Open Body Drawing (PDF)</a>
+                    <div class="about-body">
+                        <p>I'm studying computer science with a concentration in machine learning and AI at
+                        California Baptist University. I'm passionate about coding and design, and I enjoy
+                        building practical software for real-life problems.</p>
+                        <p>I like picking up new languages and tools and putting them to work on real projects,
+                        from mobile apps to cloud back ends to security tooling.</p>
+                        <blockquote class="about-quote">
+                            &ldquo;Trust in the Lord with all your heart and lean not on your own understanding;
+                            in all your ways submit to him, and he will make your paths straight.&rdquo;
+                            <cite>Proverbs 3:5-6</cite>
+                        </blockquote>
                     </div>
                 </div>
             </div>
+        </section>
+
+        <section id="resume" class="section">
+            <div class="container">
+                <div class="section-head reveal">
+                    <span class="eyebrow">Resume</span>
+                    <h2>Experience &amp; background</h2>
+                </div>
+                <div class="resume-card reveal">
+                    <div>
+                        <strong>Payton Henry, Resume</strong>
+                        <p>Salesforce developer, CS student, project builder. One-page PDF.</p>
+                    </div>
+                    <div class="resume-actions">
+                        <a href="assets/images/UpdatedResume.pdf" target="_blank" rel="noopener" class="btn btn-primary">
+                            <i class="fas fa-arrow-up-right-from-square"></i> View
+                        </a>
+                        <a href="assets/images/UpdatedResume.pdf" download class="btn btn-ghost">
+                            <i class="fas fa-download"></i> Download
+                        </a>
+                    </div>
+                </div>
+                <details class="resume-preview reveal">
+                    <summary><i class="fas fa-file-lines"></i> Preview Resume</summary>
+                    <embed src="assets/images/UpdatedResume.pdf" type="application/pdf" />
+                </details>
+            </div>
+        </section>
+
+        <section id="portfolio" class="section">
+            <div class="container">
+                <div class="section-head reveal">
+                    <span class="eyebrow">Projects</span>
+                    <h2>Selected work</h2>
+                    <p>Four projects across mobile, AI, cloud, security, and CAD. Expand any card for the full write-up.</p>
+                </div>
+
+                <div class="projects">
+                    <!-- SnapDose -->
+                    <article class="project reveal">
+                        <div class="project-head">
+                            <h3>SnapDose, AI Diabetes Nutritionist</h3>
+                        </div>
+                        <span class="project-meta">With Ryan Stoffel, Elijah Tabor, Micah Suk &amp; Millie Anderson &nbsp;&middot;&nbsp; California Baptist University &nbsp;&middot;&nbsp; January to May 2026</span>
+
+                        <div class="project-figure center">
+                            <img src="assets/images/SDhome2.jpg" alt="SnapDose home screen and dashboard">
+                        </div>
+
+                        <p class="project-lead">SnapDose helps diabetes patients count carbs instantly: snap a photo of a meal
+                        and get an AI carbohydrate estimate in seconds instead of spending 5 to 10 minutes on manual
+                        calculation. It tracks meal history, shows a confidence rating for each estimate, identifies food
+                        items in photos, and monitors weekly trends. By making carb counting fast and easy, SnapDose helps
+                        patients make better food choices and manage their blood sugar more effectively.</p>
+
+                        <div class="shots">
+                            <img src="assets/images/SDdose.jpg" alt="SnapDose insulin dosing screen">
+                            <img src="assets/images/SDconfirm.jpg" alt="SnapDose dose confirmation sheet">
+                            <img src="assets/images/SDanalysis.jpg" alt="SnapDose AI analysis results screen">
+                            <img src="assets/images/SDweekly.jpg" alt="SnapDose weekly summary screen">
+                            <img src="assets/images/SDsettings.jpg" alt="SnapDose settings screen">
+                            <img src="assets/images/SDprofile.jpg" alt="SnapDose profile screen">
+                        </div>
+
+                        <details class="more">
+                            <summary><span class="more-label-closed">Read more</span><span class="more-label-open">Show less</span></summary>
+                            <div class="more-content">
+                                <h4>Architecture</h4>
+                                <p>SnapDose runs on a serverless Google Cloud Platform architecture. The React Native
+                                frontend uses Firebase Authentication and Firestore, with security rules keeping each user's
+                                data private. When a user uploads a meal photo, Firebase Storage triggers a Google Cloud
+                                Function that sends the image to the Google Gemini 3.1 Pro API with specialized nutrition
+                                prompts. Gemini returns carb estimates, confidence levels, detected foods, and notes, which
+                                are saved to Firestore with timestamps as a JSON file. The app caches data locally through
+                                Firestore's offline persistence.</p>
+                                <p>A Spring Boot REST API bridges the app to a simulated physical insulin pump built on a
+                                Tab5 microcontroller. When a user logs carbs and requests an insulin dose, the request is
+                                sent securely through Firebase Authentication to the Spring Boot API, which relays it to the
+                                Tab5 device. The Tab5 pump polls for pending bolus requests, delivers insulin, reports
+                                confirmation to Firestore, and maintains heartbeat communication. SnapDose also integrates
+                                the Dexcom API to pull real-time continuous glucose monitoring data, so users can view blood
+                                sugar alongside meal tracking and insulin dosing in one unified dashboard. The entire system
+                                is serverless and scales automatically, with all user data stored securely and controlled by
+                                the user.</p>
+                                <div class="diagram">
+                                    <img src="assets/images/SDarch.jpg" alt="SnapDose system architecture on Google Cloud Platform">
+                                    <p class="figcaption">System architecture on Google Cloud Platform</p>
+                                </div>
+                                <h4>Screens</h4>
+                                <ul>
+                                    <li><strong>Home and Dashboard</strong> (shown above, in dark mode). Lets users calculate
+                                    and log an insulin dose. It displays the current insulin on board (3.0u active) and
+                                    offers two dose types, Meal Dose and Correction Dose. Users can adjust total
+                                    carbohydrates with plus and minus buttons, and the app calculates a recommended dose
+                                    based on their carb ratio and active insulin.</li>
+                                    <li><strong>Insulin Dosing</strong>. Calculates insulin requirements for meals based on
+                                    carbohydrate intake and current insulin activity. Users can quickly adjust carb counts
+                                    and choose between meal-based dosing (using carb ratio) or correction dosing (targeting a
+                                    specific glucose level).</li>
+                                    <li><strong>Dose Confirmation Sheet</strong>. Validates dosing calculations before
+                                    delivery by showing the complete mathematical breakdown. It protects against accidental
+                                    doses with a slide-to-confirm interaction, and displays how current glucose, carb ratio,
+                                    and active insulin combine to determine the final dose amount.</li>
+                                    <li><strong>AI Analysis Results</strong>. Processes food photos through AI to identify
+                                    items and estimate carbohydrate content. Confidence ratings help users decide whether to
+                                    accept the estimate or adjust it manually, and the screen streamlines the transition from
+                                    carb estimation to insulin dosing.</li>
+                                    <li><strong>Weekly Summary</strong>. Aggregates meal and carbohydrate data to reveal
+                                    eating patterns over time. Users can review past meals with visual thumbnails and
+                                    timestamps, and use it as a searchable log of what was eaten and when insulin was
+                                    dosed.</li>
+                                    <li><strong>Settings</strong>. Manages connections to external diabetes devices (CGM and
+                                    insulin pump) and monitors device connectivity so data keeps flowing. Users can
+                                    configure or change their insulin delivery device and verify pairing status.</li>
+                                    <li><strong>Profile</strong>. Stores the diabetes management parameters that drive dose
+                                    calculations, including target glucose ranges, physical characteristics, and
+                                    carb-to-insulin ratios. It is the central place to review and adjust personalized
+                                    treatment parameters.</li>
+                                </ul>
+                            </div>
+                        </details>
+
+                        <div class="tag-row">
+                            <span>React Native</span><span>Firebase</span><span>Google Gemini API</span>
+                            <span>Spring Boot</span><span>GCP Cloud Functions</span><span>Dexcom API</span>
+                        </div>
+                    </article>
+
+                    <!-- Bogey Busters -->
+                    <article class="project reveal">
+                        <div class="project-head">
+                            <h3>Bogey Busters, Golf Tracking App</h3>
+                        </div>
+                        <span class="project-meta">With Ryan Stoffel &nbsp;&middot;&nbsp; Sept 2025 to Present</span>
+
+                        <p class="project-lead">A golf tracking mobile app built with Flutter/Dart and Firebase. It uses GPS
+                        positioning and the Google Maps SDK to help golfers track shots, distances, and rounds on real
+                        courses with live location data, plus a social feed for friends.</p>
+
+                        <div class="shots">
+                            <img src="assets/images/coursesScreen.jpg" alt="Bogey Busters course list screen">
+                            <img src="assets/images/previewScreen.jpg" alt="Bogey Busters course preview screen">
+                            <img src="assets/images/detailsScreen.jpg" alt="Bogey Busters hole details screen">
+                            <img src="assets/images/InRound.jpg" alt="Bogey Busters in-round tracking screen">
+                            <img src="assets/images/endRound.jpg" alt="Bogey Busters end of round screen">
+                            <img src="assets/images/friendsScreen.jpg" alt="Bogey Busters friends screen">
+                        </div>
+
+                        <details class="more">
+                            <summary><span class="more-label-closed">Read more</span><span class="more-label-open">Show less</span></summary>
+                            <div class="more-content">
+                                <p>Built with Flutter/Dart and Firebase, the app uses GPS positioning and the Google Maps
+                                SDK to help golfers track their shots, distances, and rounds on real courses with real-time
+                                location data. Firestore handles real-time data syncing, SharedPreferences stores local game
+                                state, and Firebase Storage manages media. Social features such as friend requests, likes,
+                                and comments run through Firestore streams, with Firebase Authentication handling user
+                                management.</p>
+                                <ul>
+                                    <li>Flutter mobile app with a Firebase backend handling user authentication, profile management, and real-time data sync across 40+ database documents.</li>
+                                    <li>OpenStreetMap Overpass API integration that fetches course data (hole layouts, tee box coordinates, and green locations) with automatic caching to reduce API calls.</li>
+                                    <li>Google Maps SDK with custom markers and polylines to track shot distances, calculate bearing angles, and display real-time GPS positioning during a round.</li>
+                                    <li>Round persistence system using SharedPreferences that saves game state locally, letting users resume an incomplete round after an app restart.</li>
+                                    <li>Social feed with friend requests, likes, and comments powered by Firestore real-time streams and Firebase Storage for profile pictures.</li>
+                                </ul>
+                            </div>
+                        </details>
+
+                        <div class="tag-row">
+                            <span>Flutter / Dart</span><span>Firebase</span><span>Firestore</span>
+                            <span>Google Maps SDK</span><span>Overpass API</span>
+                        </div>
+                    </article>
+
+                    <!-- Python Email Skimmer -->
+                    <article class="project reveal">
+                        <div class="project-head">
+                            <h3>Python Email Skimmer</h3>
+                        </div>
+                        <span class="project-meta">February to March 2025</span>
+
+                        <p class="project-lead">A Python email-security application that scans a connected Gmail inbox for
+                        potential threats (spam detection, phishing URL identification, and suspicious attachment scanning)
+                        and tags messages with relevant labels.</p>
+
+                        <div class="shots wide">
+                            <img src="assets/images/Email_ss.png" alt="Email Skimmer interface screenshot">
+                            <img src="assets/images/emailScimmer.png" alt="Email Skimmer results screenshot">
+                        </div>
+
+                        <details class="more">
+                            <summary><span class="more-label-closed">Read more</span><span class="more-label-open">Show less</span></summary>
+                            <div class="more-content">
+                                <ul>
+                                    <li>Spam detection, phishing URL identification, and suspicious attachment scanning, connected to Gmail. Messages are tagged with relevant labels as they are processed.</li>
+                                    <li>Runs in an interactive web-based GUI built with <strong>eel</strong>, which takes the user's Google/Gmail credentials plus other details such as how many emails to search and in what order.</li>
+                                    <li>Can generate test emails containing suspicious attachments, links, and spam text that will be flagged, so the behavior can be demonstrated safely.</li>
+                                    <li>Skills: Python, PyCharm.</li>
+                                </ul>
+                            </div>
+                        </details>
+
+                        <div class="tag-row">
+                            <span>Python</span><span>eel</span><span>Gmail API</span><span>PyCharm</span>
+                        </div>
+                    </article>
+
+                    <!-- Stratocaster AutoCAD -->
+                    <article class="project reveal">
+                        <div class="project-head">
+                            <h3>Complete Stratocaster AutoCAD Model</h3>
+                        </div>
+                        <span class="project-meta">With Ian Deckman &nbsp;&middot;&nbsp; October to December 2024</span>
+
+                        <p class="project-lead">A full AutoCAD model of a Silvertone Stratocaster electric guitar, measured
+                        and modeled by a team of two. Every part was measured and dimensioned, with tolerances on small
+                        components down to &plusmn;0.001 inch, and drawn as full engineering drawings (ASME Y14.5) for both
+                        the neck and the body.</p>
+
+                        <details class="more">
+                            <summary><span class="more-label-closed">View drawings</span><span class="more-label-open">Hide drawings</span></summary>
+                            <div class="more-content">
+                                <ul>
+                                    <li>Measured all parts and modeled a Silvertone Stratocaster in AutoCAD, working in a team of two.</li>
+                                    <li>Held accuracy on small components to within &plusmn;0.001 inch.</li>
+                                    <li>Produced fully dimensioned engineering drawings (ASME Y14.5) for the guitar body and neck.</li>
+                                </ul>
+                                <p>The drawings below are interactive: scroll to zoom and drag to pan.</p>
+                                <div class="cad-item">
+                                    <embed src="assets/images/stratocaster-neck.pdf" type="application/pdf" />
+                                    <a href="assets/images/stratocaster-neck.pdf" target="_blank" rel="noopener">Open neck drawing (PDF)</a>
+                                </div>
+                                <div class="cad-item">
+                                    <embed src="assets/images/stratocaster-body.pdf" type="application/pdf" />
+                                    <a href="assets/images/stratocaster-body.pdf" target="_blank" rel="noopener">Open body drawing (PDF)</a>
+                                </div>
+                            </div>
+                        </details>
+
+                        <div class="tag-row">
+                            <span>AutoCAD</span><span>Engineering drawings</span><span>ASME Y14.5</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="connect" class="section">
+            <div class="container">
+                <div class="section-head reveal">
+                    <span class="eyebrow">Connect</span>
+                    <h2>Get in touch</h2>
+                    <p>Have a question or an opportunity? Send a message, or find me on the links below.</p>
+                </div>
+                <div class="connect-grid reveal">
+                    <form id="contact-form">
+                        <input type="text" name="from_name" placeholder="Your name" required>
+                        <input type="email" name="reply_to" placeholder="Your email" required>
+                        <textarea id="messageTextarea" name="message" placeholder="Your message" required></textarea>
+                        <button type="submit" class="btn btn-primary">Send message</button>
+                        <div id="form-status" role="status" aria-live="polite"></div>
+                    </form>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/payton-e-henry/" target="_blank" rel="noopener">
+                            <i class="fab fa-linkedin"></i> LinkedIn
+                        </a>
+                        <a href="https://github.com/Paytonhenry04" target="_blank" rel="noopener">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                        <a href="https://app.joinhandshake.com/profiles/mbj49h" target="_blank" rel="noopener">
+                            <i class="fas fa-handshake"></i> Handshake
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <span>&copy; 2026 Payton Henry</span>
+            <a href="mailto:payton.e.henry04@gmail.com">payton.e.henry04@gmail.com</a>
         </div>
-    </section>
-    
-    <section id="connect" class="connect">
-        <h2>Connect with Me</h2>
-        <form id="contact-form">
-            <input type="text" name="from_name" placeholder="Your Name" required>
-            <input type="email" name="reply_to" placeholder="Your Email" required>
-            <textarea id="messageTextarea" name="message" placeholder="Your Message" required></textarea>
-            <button type="submit">Send Message</button>
-        </form>
-        <div id="form-status"></div>
-        <div class="social-links">
-            <a href="https://www.linkedin.com/in/payton-e-henry/" target="_blank">
-                <i class="fab fa-linkedin"></i> LinkedIn
-            </a>
-            <a href="https://github.com/Paytonhenry04?tab=overview&from=2025-10-01&to=2025-10-04" target="_blank">
-                <i class="fab fa-github"></i> GitHub
-            </a>
-            <a href="https://app.joinhandshake.com/profiles/mbj49h" target="_blank">
-                <i class="fas fa-handshake"></i> Handshake
-            </a>
-        </div>
-    </section> 
-    
-    <footer>
-        <p>Contact</p>
-        <p>Email: payton.e.henry04@gmail.com</p>
     </footer>
-    
-    <!-- Link to JavaScript file -->
+
+    <div class="lightbox" id="lightbox" aria-hidden="true">
+        <button class="lightbox-close" aria-label="Close">&times;</button>
+        <img src="" alt="">
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>

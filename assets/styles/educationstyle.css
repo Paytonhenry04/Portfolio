@@ -1,234 +1,108 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+/* ============================================================
+   Education page, page-specific styles
+   (depends on tokens defined in style.css, loaded first)
+   ============================================================ */
+
+.edu-hero {
+    padding-block: clamp(2.5rem, 7vw, 4.5rem);
 }
 
-body {
-    background: linear-gradient(to right, #5f0000, #140014);
-    color: #333;
-    line-height: 1.6;
-    text-align: center;
-}
-
-header {
-    background: #363636;
-    color: #fff;
-    padding: 0.1vh;
-    text-align: center;
-}
-
-nav ul {
-    list-style: none;
-    text-align: center;
-    padding: 0;
-}
-
-nav ul li {
-    display: inline;
-    margin: 2vw;
-}
-
-nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.8vw;
-}
-
-nav ul li a:hover {
-    color: #ff9800;
-}
-
-table {
-    font-family: 'Poppins', sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-}
-
-td, th {
-    border: 1px solid #000000;
-    text-align: center;
-    padding: 2vh;
-    color: #000000;
-}
-
-.classes {
-    padding: 2.5vh;
-    color: #ffff;
-    text-align: center;
-}
-
-.classes table + table {
-    margin-top: 4vh;
-}
-
-.education h1 {
-    margin: 1vh;
-    font-size: 2vw;
-    color: #ffff;
-}
-
-h2 {
-    margin: 1vh;
-    color: #ffff;
-    font-size: 3vw;
-}
-
-.education h2 {
-    font-size: 1.2vw;
-}
-
-.futureClasses {
-    padding: 2.5vh;
-    color: #ffff;
-    text-align: center;
-}
-
-tr:nth-child(even) {
-    background-color: #afafaf;
-}
-
-tr:nth-child(odd) {
-    background-color: #ffffff;
-}
-
-.education nav p a {
-    font-size: 1.5vw;
-    color: #ffffff;
-    padding: 1vh;
-}
-
-.education p {
-    text-align: left;
-}
-
-.education p a {
-    font-size: 1.2vw;
-    color: #ffffff;
-}
-
-.education p a:hover {
-    color: #ff9800;
-}
-.futureClasses p a:hover {
-    color: #ff9800;
-}
-
-.futureClasses nav p {
-    font-size: 1.2vw;
-    color: #ffffff;
-    text-align: left;
-}
-
-.futureClasses nav p a {
-    font-size: 2vw;
-    color: #ffffff;
-    padding: 1vh;
-}
-
-.classes h2 {
+.back-link {
     display: flex;
-    font-size: 2vw;
-    flex-direction: column;
-    justify-content: center;
+    width: fit-content;
     align-items: center;
-    text-align: center;
-    height: 10vh;
-    background: white;
-    color: black;
-    padding: 0;
+    gap: 0.5rem;
+    font-size: var(--step--1);
+    font-weight: 500;
+    color: var(--text-dim);
+    margin-bottom: 1.25rem;
+    transition: color 0.18s ease;
 }
 
-@media (max-width: 600px) {
-    header {
-        background: #363636;
-        height: fit-content;
-    }
-    nav ul {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr); /* Two equal-width columns */
-        justify-items: center;             /* Center items within each column */
-        align-items: center;
-        
-    }
-    nav ul li {
-        margin: 1vh;
-    }
-    nav ul li a {
-        color: #fff;
-        text-decoration: none;
-        font-family: 'Poppins', sans-serif;
-        font-size: 5vw;
-        margin: 0vh;
-        align-items: left;
-        flex-direction: column;
-       
-    }
-    .classes table {
-        font-family: 'Poppins', sans-serif;
-        border-collapse: collapse;
-        width: 1vw;
-        margin: 0 auto;
-    }
-    .futureClasses table {
-        font-family: 'Poppins', sans-serif;
-        border-collapse: collapse;
-        width: 1vw;
-        margin: 0 auto;
-    }
-    .classes td, th {
-        border: 1px solid #000000;
-        text-align: center;
-        padding: 0.3vh;
-        font-size: 3vw;
-    }
-    .futureClasses td, th {
-        border: 1px solid #000000;
-        text-align: center;
-        padding: 0.3vh;
-        font-size: 3vw;
-    }
-    .classes {
-        padding: 2.5vh;
-        text-align: center;
-    }
-    .futureClasses {
-        padding: 2.5vw;
-        text-align: center;
-    }
-    .classes h1 {
-        margin: 1vh;
-        font-size: 6vw;
-    }
-    .futureClasses h1 {
-        margin: 1vh;
-        font-size: 6vw;
-    }
-    .education h1 {
-        font-size: 9vw;
-    }
-    .education h2 {
-        font-size: 3vw;
-    }
-    .education nav p a {
-        font-size: 4vw;
-        font-family: 'Poppins', sans-serif;
-        color: rgb(255, 255, 255);
-        text-align: left;
-        padding: 2vh;
-        display: block;
-    }
-    .futureClasses nav p {
-        text-align: left;
-    }
-    .futureClasses nav p a {
-        font-size: 4vw;
-        font-family: 'Poppins', sans-serif;
-        color: rgb(255, 255, 255);
-        text-align: left;
-        padding: 2vh;
-        display: block;
-    }
+.back-link:hover {
+    color: var(--accent);
+}
+
+.edu-hero h1 {
+    font-size: var(--step-3);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+}
+
+.edu-hero > .container > p {
+    margin-top: 0.6rem;
+    color: var(--text-dim);
+}
+
+.stat-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.85rem;
+    margin-top: 1.75rem;
+}
+
+.stat {
+    flex: 1 1 160px;
+    padding: 1rem 1.25rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--surface);
+}
+
+.stat strong {
+    display: block;
+    font-size: var(--step-2);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+}
+
+.stat span {
+    font-size: var(--step--1);
+    color: var(--text-faint);
+}
+
+.term-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: clamp(1rem, 3vw, 1.5rem);
+}
+
+.term {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--surface);
+    padding: 1.25rem 1.35rem 1.4rem;
+}
+
+.term h3 {
+    font-size: var(--step-1);
+    font-weight: 600;
+    margin-bottom: 0.85rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.term.upcoming h3 {
+    color: var(--accent);
+}
+
+.term ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.term li {
+    font-size: var(--step--1);
+    line-height: 1.5;
+    color: var(--text-dim);
+}
+
+.term .code {
+    display: inline-block;
+    min-width: 3.9em;
+    font-weight: 600;
+    color: var(--text);
 }
