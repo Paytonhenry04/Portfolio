@@ -53,25 +53,43 @@
         <h2>My Projects</h2>
         <div class="project-grid">
             <div class="project-card">
-                <h3>Gmail Skimmer</h3>
-                <p1>A python application that scans your Gmail inbox for potential threats. Going through
-                    emails and tagging them with relevant labels. The app provided a fake spam/suspicious
-                    email for testing purposes.
-                </p1>
-                <div class="image-container gmail-images">
-                    <img src="assets/images/Email_ss.png" >
-                    <img src="assets/images/emailScimmer.png" >
+                <h3>SnapDose &ndash; AI Diabetes Nutritionist</h3>
+                <p1 class="project-meta">Partnered with Ryan Stoffel, Elijah Tabor, Micah Suk, and Millie Anderson &nbsp;&middot;&nbsp; California Baptist University &nbsp;&middot;&nbsp; Jan 2026 &ndash; May 2026</p1>
+                <div class="snapdose-home">
+                    <img src="assets/images/SDhome2.jpg" alt="SnapDose home screen and dashboard">
+                </div>
+                <p1>SnapDose is a mobile application that helps diabetes patients count carbs instantly. Users snap a photo of their meal and get an AI-powered carbohydrate estimate in seconds instead of spending 5&ndash;10 minutes on manual calculation. The app tracks meal history, shows confidence for each estimate, identifies food items in photos, and monitors weekly trends. By making carb counting fast and easy, SnapDose helps patients make better food choices and manage their blood sugar more effectively.</p1>
+                <p1>SnapDose runs on a serverless Google Cloud Platform architecture. The React Native frontend uses Firebase Authentication and Firestore, with security rules keeping each user's data private. When a user uploads a meal photo, Firebase Storage triggers a Google Cloud Function that sends the image to the Google Gemini 3.1 Pro API with specialized nutrition prompts; Gemini returns carb estimates, confidence levels, detected foods, and notes, which are saved to Firestore with timestamps. The app caches data locally through Firestore's offline persistence. A Spring Boot REST API bridges the app to a simulated physical insulin pump built on a Tab5 microcontroller: when a user logs carbs and requests an insulin dose, the request is sent securely through Firebase Authentication to the Spring Boot API, which relays it to the Tab5 device. The Tab5 pump polls for pending bolus requests, delivers insulin, reports confirmation to Firestore, and maintains heartbeat communication. SnapDose also integrates the Dexcom API to pull real-time continuous glucose monitoring data, so users can view blood sugar alongside meal tracking and insulin dosing in one unified dashboard. The whole system scales automatically, with all user data stored securely and controlled by the user.</p1>
+                <div class="image-container snapdose-images">
+                    <img src="assets/images/SDdose.jpg" alt="SnapDose insulin dosing screen">
+                    <img src="assets/images/SDconfirm.jpg" alt="SnapDose dose confirmation sheet">
+                    <img src="assets/images/SDanalysis.jpg" alt="SnapDose AI analysis results screen">
+                    <img src="assets/images/SDweekly.jpg" alt="SnapDose weekly summary screen">
+                    <img src="assets/images/SDsettings.jpg" alt="SnapDose settings screen">
+                    <img src="assets/images/SDprofile.jpg" alt="SnapDose profile screen">
+                </div>
+                <div class="snapdose-arch">
+                    <img src="assets/images/SDarch.jpg" alt="SnapDose system architecture on Google Cloud Platform">
+                    <p1>System architecture (Google Cloud Platform)</p1>
                 </div>
             </div>
-            
+
             <div class="project-card">
-                <h3>Bogie Busters - Golf Tracking App</h3>
-                <p1>This is a golf tracking mobile app built with Flutter/Dart and Firebase that uses GPS positioning and Google Maps SDK to help
+                <h3>Bogey Busters &ndash; Golf Tracking App</h3>
+                <p1 class="project-meta">Partnered with Ryan Stoffel &nbsp;&middot;&nbsp; Sept 2025 &ndash; Present</p1>
+                <p1>Bogey Busters is a golf tracking mobile app built with Flutter/Dart and Firebase that uses GPS positioning and the Google Maps SDK to help
                 golfers track their shots, distances, and rounds on actual golf courses with real-time location data. The app integrates
                 OpenStreetMap's Overpass API to fetch detailed course layouts and uses Firestore for real-time data syncing,
                 SharedPreferences for local game state persistence, and Firebase Storage for media management. It includes social
                 features like friend requests, likes, and comments through Firestore streams, with Firebase Authentication handling user
                 management.</p1>
+                <ul class="project-highlights">
+                    <li>Flutter mobile app with a Firebase backend handling user authentication, profile management, and real-time data sync across 40+ database documents.</li>
+                    <li>OpenStreetMap Overpass API integration that fetches course data &ndash; hole layouts, tee box coordinates, and green locations &ndash; with automatic caching to reduce API calls.</li>
+                    <li>Google Maps SDK with custom markers and polylines to track shot distances, calculate bearing angles, and display real-time GPS positioning during a round.</li>
+                    <li>Round persistence system using SharedPreferences that saves game state locally, letting users resume an incomplete round after an app restart.</li>
+                    <li>Social feed with friend requests, likes, and comments powered by Firestore real-time streams and Firebase Storage for profile pictures.</li>
+                </ul>
                 <div class="image-container golf-app-images">
                     <img src="assets/images/coursesScreen.jpg">
                     <img src="assets/images/previewScreen.jpg">
@@ -81,13 +99,38 @@
                     <img src="assets/images/friendsScreen.jpg">
                 </div>
             </div>
-            
-            <!-- <div class="project-card">
-                <h3>Project 3</h3>
-                <p>Something unique and creative.</p>
-                <img src="" >
-                <p>placeholder</p>
-            </div> -->
+
+            <div class="project-card">
+                <h3>Python Email Skimmer</h3>
+                <p1 class="project-meta">Feb 2025 &ndash; Mar 2025</p1>
+                <p1>A Python-based email security application that scans a connected Gmail inbox for potential threats &ndash; spam detection, phishing URL identification, and suspicious attachment scanning &ndash; and tags messages with relevant labels.</p1>
+                <ul class="project-highlights">
+                    <li>Runs in an interactive web-based GUI built with <strong>eel</strong> that takes the user's Google/Gmail credentials plus options such as how many emails to scan and in what order.</li>
+                    <li>Detects spam, identifies phishing URLs, and scans for suspicious attachments across the inbox.</li>
+                    <li>Can generate test emails containing suspicious attachments, links, and spam text so the flagging behavior can be demonstrated safely.</li>
+                    <li>Tools: Python, PyCharm.</li>
+                </ul>
+                <div class="image-container skimmer-images">
+                    <img src="assets/images/Email_ss.png" >
+                    <img src="assets/images/emailScimmer.png" >
+                </div>
+            </div>
+
+            <div class="project-card">
+                <h3>Complete Stratocaster AutoCAD Model</h3>
+                <p1 class="project-meta">Partnered with Ian Deckman &nbsp;&middot;&nbsp; Oct 2024 &ndash; Dec 2024</p1>
+                <p1>A complete AutoCAD model of a Silvertone Stratocaster electric guitar, measured and modeled by a team of two. Every part was measured and dimensioned &ndash; with tolerances on small components down to &plusmn;0.001 inch &ndash; and drawn as full engineering drawings (ASME Y14.5) for both the body and the neck. The drawings below are interactive: scroll to zoom and drag to pan.</p1>
+                <div class="cad-embeds">
+                    <div class="cad-item">
+                        <embed src="assets/images/stratocaster-neck.pdf" type="application/pdf" class="cad-embed" />
+                        <a href="assets/images/stratocaster-neck.pdf" target="_blank">Open Neck Drawing (PDF)</a>
+                    </div>
+                    <div class="cad-item">
+                        <embed src="assets/images/stratocaster-body.pdf" type="application/pdf" class="cad-embed" />
+                        <a href="assets/images/stratocaster-body.pdf" target="_blank">Open Body Drawing (PDF)</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
     

@@ -60,6 +60,10 @@ td, th {
     text-align: center;
 }
 
+.classes table + table {
+    margin-top: 4vh;
+}
+
 .education h1 {
     margin: 1vh;
     font-size: 2vw;

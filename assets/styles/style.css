@@ -203,23 +203,104 @@ nav ul li a:hover {
 }
 
 .image-container img {
-    width: 35vw !important;
+    width: 28vw !important;
+    max-width: 320px !important;
     height: auto !important;
     /* max-height: 50vh; */
     object-fit: contain !important;
     border-radius: 0.5rem;
 }
 
-/* Golf app images - smaller size */
+/* Golf app images - smaller size (low-res source, keep them compact) */
 .golf-app-images img {
-    width: 20vw !important;
+    width: 14vw !important;
+    max-width: 220px !important;
     height: auto !important;
 }
 
-/* Gmail skimmer images - smaller size */
-.gmail-images img {
-    width: 25vw !important;
+/* Email skimmer images - smaller size */
+.skimmer-images img {
+    width: 18vw !important;
+    max-width: 340px !important;
     height: auto !important;
+}
+
+/* SnapDose screenshots */
+.snapdose-images img {
+    width: 14vw !important;
+    max-width: 220px !important;
+    height: auto !important;
+}
+
+/* SnapDose home screen - shown between the heading and the description */
+.snapdose-home {
+    width: 100%;
+    margin: 1.5vh 0 2vh;
+}
+.snapdose-home img {
+    width: 25vw;
+    max-width: 400px;
+    width: 25vw;
+    height: auto;
+    border-radius: 0.5rem;
+}
+
+/* SnapDose architecture diagram */
+.snapdose-arch {
+    width: 100%;
+    margin-top: 3vh;
+}
+.snapdose-arch img {
+    width: 50vw;
+    max-width: 760px;
+    height: auto;
+    border-radius: 0.5rem;
+}
+
+/* Stratocaster CAD PDF embeds */
+.cad-embeds {
+    display: flex;
+    flex-direction: column;
+    gap: 3vh;
+    align-items: center;
+    width: 100%;
+}
+.cad-item {
+    width: 100%;
+    text-align: center;
+}
+.cad-embed {
+    width: 80vw;
+    max-width: 1100px;
+    height: 70vh;
+    min-height: 500px;
+    display: block;
+    margin: 0 auto 1vh;
+    border-radius: 0.5rem;
+}
+.cad-item a {
+    color: #fff;
+    font-size: 1.2vw;
+}
+.cad-item a:hover {
+    color: #2f71ff;
+}
+
+/* Project meta line + highlight lists */
+.project-meta {
+    display: block;
+    opacity: 0.75;
+    font-style: italic;
+    margin-bottom: 1.5vh;
+}
+.project-highlights {
+    text-align: left;
+    margin: 1vh auto 2vh;
+    max-width: 55vw;
+    padding-left: 1.2rem;
+}
+.project-highlights li {
+    margin-bottom: 0.8vh;
 }
 
 .project-card {
@@ -472,7 +553,27 @@ footer {
         max-height: none !important;
         object-fit: contain !important;
     }
-    
+
+    .snapdose-home img {
+        width: 55vw;
+        max-width: 260px;
+    }
+    .snapdose-arch img {
+        width: 92vw;
+    }
+    .cad-embed {
+        width: 92vw;
+        height: 55vh;
+        min-height: 350px;
+    }
+    .cad-item a {
+        font-size: 4vw;
+    }
+    .project-highlights {
+        max-width: 85vw;
+        font-size: 3vw;
+    }
+
     /* Social links responsive */
     .social-links {
         flex-direction: row;
