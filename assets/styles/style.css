@@ -33,6 +33,8 @@
 
     --font: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
 
+    --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+
     --step--1: clamp(0.82rem, 0.78rem + 0.2vw, 0.92rem);
     --step-0: clamp(0.95rem, 0.9rem + 0.25vw, 1.05rem);
     --step-1: clamp(1.1rem, 1rem + 0.5vw, 1.3rem);
@@ -60,12 +62,20 @@ body {
     font-weight: 400;
     line-height: 1.65;
     color: var(--text);
-    background-color: var(--bg-b);
-    background-image: linear-gradient(160deg, var(--bg-a), var(--bg-b) 75%);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
     min-height: 100vh;
     overflow-x: hidden;
+    overflow-wrap: break-word;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* page gradient on a fixed layer (background-attachment: fixed is ignored on iOS) */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(160deg, var(--bg-a), var(--bg-b) 75%);
+    pointer-events: none;
 }
 
 img {
@@ -133,22 +143,107 @@ a {
     max-width: 55ch;
 }
 
-/* gentle one-time page fade-in (safe: content is visible even without JS) */
-@keyframes page-in {
-    from { opacity: 0; transform: translateY(10px); }
+/* ---------- motion ---------- */
+
+@keyframes rise {
+    from { opacity: 0; transform: translateY(18px); }
 }
 
-html.js main > .section,
-html.js .hero-inner {
-    animation: page-in 0.5s ease both;
+/* scroll reveal: script.js adds .reveal-on to <html> and .in to each element as it
+   scrolls into view, so without JS (or with reduced motion) everything is visible */
+.reveal-on .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out), border-color 0.2s ease;
 }
 
-@media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
-    html.js main > .section,
-    html.js .hero-inner { animation: none; }
-    .cursor { animation: none; }
+.reveal-on .reveal.in {
+    opacity: 1;
+    transform: none;
 }
+
+/* accent line that draws in before each section eyebrow */
+.section-head .eyebrow::before {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    width: 1.5rem;
+    height: 2px;
+    margin: -0.15em 0.6rem 0 0;
+    border-radius: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    transition: width 0.7s var(--ease-out) 0.25s, margin 0.7s var(--ease-out) 0.25s;
+}
+
+.reveal-on .section-head.reveal:not(.in) .eyebrow::before {
+    width: 0;
+    margin-right: 0;
+}
+
+/* scroll progress bar along the bottom of the header */
+.scroll-progress {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    height: 2px;
+    transform: scaleX(var(--progress, 0));
+    transform-origin: 0 50%;
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    pointer-events: none;
+}
+
+/* cursor spotlight on cards (pointer devices only; script.js adds .spot) */
+.spot {
+    position: relative;
+    isolation: isolate;
+}
+
+.spot::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgba(255, 152, 0, 0.1), transparent 45%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.spot:hover::before { opacity: 1; }
+
+/* back-to-top button (created by script.js) */
+.to-top {
+    position: fixed;
+    right: clamp(0.9rem, 3vw, 1.75rem);
+    bottom: clamp(0.9rem, 3vw, 1.75rem);
+    z-index: 90;
+    display: grid;
+    place-items: center;
+    width: 2.9rem;
+    height: 2.9rem;
+    border-radius: 50%;
+    border: 1px solid var(--border-strong);
+    background: rgba(20, 0, 20, 0.8);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: var(--accent);
+    font-size: 1rem;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(14px) scale(0.9);
+    pointer-events: none;
+    transition: opacity 0.25s ease, transform 0.25s var(--ease-out), border-color 0.18s ease;
+}
+
+.to-top.show {
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+}
+
+.to-top:hover { border-color: var(--accent); }
 
 /* ---------- buttons ---------- */
 
@@ -167,9 +262,26 @@ html.js .hero-inner {
 }
 
 .btn-primary {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
     background: linear-gradient(135deg, var(--accent), var(--accent-2));
     color: #200a00;
+    box-shadow: 0 8px 24px -10px rgba(255, 120, 0, 0.6);
 }
+
+/* light sweep across primary buttons on hover */
+.btn-primary::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(115deg, transparent 30%, rgba(255, 255, 255, 0.45) 50%, transparent 70%);
+    transform: translateX(-120%);
+    transition: transform 0.7s var(--ease-out);
+}
+
+.btn-primary:hover::after { transform: translateX(120%); }
 
 .btn-primary:hover {
     transform: translateY(-2px);
@@ -218,6 +330,7 @@ html.js .hero-inner {
     font-weight: 700;
     font-size: var(--step-2);
     letter-spacing: -0.01em;
+    white-space: nowrap;
 }
 
 .brand span {
@@ -270,12 +383,38 @@ html.js .hero-inner {
     overflow: hidden;
 }
 
+/* two slowly drifting glows */
 .hero::before {
     content: "";
     position: absolute;
-    inset: 0;
-    background: radial-gradient(60% 55% at 70% 30%, rgba(255, 152, 0, 0.16), transparent 70%);
+    inset: -15%;
+    background:
+        radial-gradient(40% 38% at 68% 32%, rgba(255, 152, 0, 0.17), transparent 70%),
+        radial-gradient(35% 32% at 22% 72%, rgba(255, 87, 34, 0.11), transparent 70%);
+    animation: drift 22s ease-in-out infinite alternate;
     pointer-events: none;
+}
+
+/* faint dot grid that fades out toward the edges */
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.09) 1px, transparent 1.4px);
+    background-size: 28px 28px;
+    -webkit-mask-image: radial-gradient(70% 60% at 55% 45%, #000 20%, transparent 75%);
+    mask-image: radial-gradient(70% 60% at 55% 45%, #000 20%, transparent 75%);
+    animation: grid-pan 40s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes drift {
+    50% { transform: translate(-4%, 3%) scale(1.06); }
+    100% { transform: translate(3%, -2%) scale(0.97); }
+}
+
+@keyframes grid-pan {
+    to { background-position: 28px 56px; }
 }
 
 .hero-inner {
@@ -283,6 +422,20 @@ html.js .hero-inner {
     z-index: 1;
     padding-block: 6rem;
 }
+
+/* staggered entrance for the hero content */
+html.js .hero-kicker,
+html.js .hero-title,
+html.js .hero-roles span,
+html.js .hero-cta {
+    animation: rise 0.8s var(--ease-out) both;
+}
+
+html.js .hero-title { animation-delay: 0.1s; }
+html.js .hero-roles span:nth-child(1) { animation-delay: 0.35s; }
+html.js .hero-roles span:nth-child(2) { animation-delay: 0.45s; }
+html.js .hero-roles span:nth-child(3) { animation-delay: 0.55s; }
+html.js .hero-cta { animation-delay: 0.7s; }
 
 .hero-kicker {
     font-size: var(--step--1);
@@ -299,6 +452,19 @@ html.js .hero-inner {
     line-height: 1.05;
     letter-spacing: -0.02em;
     min-height: 1.1em;
+}
+
+/* typed title: an invisible full copy reserves the final height so nothing jumps */
+.hero-title.typed {
+    display: grid;
+}
+
+.hero-title.typed > span {
+    grid-area: 1 / 1;
+}
+
+.typed-ghost {
+    visibility: hidden;
 }
 
 .cursor {
@@ -327,6 +493,12 @@ html.js .hero-inner {
     font-size: var(--step--1);
     color: var(--text-dim);
     background: var(--surface);
+    transition: color 0.18s ease, border-color 0.18s ease;
+}
+
+.hero-roles span:hover {
+    color: var(--text);
+    border-color: var(--accent);
 }
 
 .hero-cta {
@@ -359,11 +531,25 @@ html.js .hero-inner {
     align-items: start;
 }
 
+/* slowly rotating gradient ring around the photo */
+@property --ring-angle {
+    syntax: '<angle>';
+    inherits: false;
+    initial-value: 0deg;
+}
+
 .about-photo {
     border-radius: var(--radius);
-    border: 1px solid var(--border);
-    padding: 0.5rem;
-    background: var(--surface);
+    border: 2px solid transparent;
+    padding: 0.4rem;
+    background:
+        linear-gradient(#1f0619, #1f0619) padding-box,
+        conic-gradient(from var(--ring-angle), var(--accent), rgba(255, 152, 0, 0.08) 25%, var(--accent-2) 50%, rgba(255, 87, 34, 0.08) 75%, var(--accent)) border-box;
+    animation: ring-spin 9s linear infinite;
+}
+
+@keyframes ring-spin {
+    to { --ring-angle: 360deg; }
 }
 
 .about-photo img {
@@ -479,15 +665,16 @@ html.js .hero-inner {
 }
 
 .project {
+    --card-pad: clamp(1.5rem, 4.5vw, 2.75rem);
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);
     background: var(--surface);
-    padding: clamp(1.5rem, 4.5vw, 2.75rem);
+    padding: var(--card-pad);
     transition: border-color 0.2s ease, transform 0.2s ease;
 }
 
 .project:hover {
-    border-color: var(--border-strong);
+    border-color: rgba(255, 152, 0, 0.32);
 }
 
 .project-head {
@@ -531,7 +718,7 @@ html.js .hero-inner {
 }
 
 .project-figure.center img {
-    max-width: 300px;
+    max-width: min(300px, 100%);
 }
 
 figcaption,
@@ -586,11 +773,11 @@ figcaption,
 
 .more-content {
     margin-top: 1rem;
-    animation: fade 0.3s ease;
+    animation: fade 0.45s var(--ease-out);
 }
 
 @keyframes fade {
-    from { opacity: 0; }
+    from { opacity: 0; transform: translateY(-8px); }
 }
 
 .more-content p + p { margin-top: 0.9rem; }
@@ -711,6 +898,13 @@ figcaption,
     border-radius: 999px;
     font-size: var(--step--1);
     color: var(--text-dim);
+    transition: color 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+}
+
+.tag-row span:hover {
+    color: var(--accent);
+    border-color: rgba(255, 152, 0, 0.45);
+    background: var(--accent-soft);
 }
 
 /* ---------- connect ---------- */
@@ -828,6 +1022,19 @@ figcaption,
 
 .lightbox.open {
     display: flex;
+    animation: fade-in 0.25s ease;
+}
+
+.lightbox.open img {
+    animation: zoom-in 0.35s var(--ease-out);
+}
+
+@keyframes fade-in {
+    from { opacity: 0; }
+}
+
+@keyframes zoom-in {
+    from { opacity: 0; transform: scale(0.94); }
 }
 
 .lightbox img {
@@ -864,9 +1071,8 @@ figcaption,
     .about-photo {
         max-width: 220px;
     }
-}
 
-@media (max-width: 680px) {
+    /* collapse the nav into a menu before the links can crowd the brand */
     .nav-toggle {
         display: inline-flex;
         align-items: center;
@@ -901,12 +1107,124 @@ figcaption,
         font-size: var(--step-1);
     }
 
-    .shots img {
-        height: 340px;
+    .nav-links.open li {
+        animation: rise 0.4s var(--ease-out) both;
     }
+
+    .nav-links.open li:nth-child(2) { animation-delay: 0.04s; }
+    .nav-links.open li:nth-child(3) { animation-delay: 0.08s; }
+    .nav-links.open li:nth-child(4) { animation-delay: 0.12s; }
+    .nav-links.open li:nth-child(5) { animation-delay: 0.16s; }
+}
+
+@media (max-width: 680px) {
+    .project {
+        --card-pad: clamp(1.1rem, 5vw, 1.5rem);
+    }
+
+    /* screenshot strips become swipeable carousels that bleed to the card edges */
+    .shots {
+        flex-wrap: nowrap;
+        gap: 0.65rem;
+        margin-inline: calc(-1 * var(--card-pad));
+        padding-inline: var(--card-pad);
+        scroll-padding-inline: var(--card-pad);
+        overflow-x: auto;
+        overscroll-behavior-x: contain;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+    }
+
+    .shots::-webkit-scrollbar { display: none; }
+
+    .shots img,
+    .shots img[hidden] {
+        display: block;
+        flex: 0 0 auto;
+        height: min(360px, 62vh);
+        scroll-snap-align: start;
+    }
+
+    .shots.wide img,
+    .shots.wide img[hidden] {
+        flex-basis: 86%;
+        min-width: 0;
+        height: auto;
+        max-width: none;
+    }
+
+    .shots-toggle { display: none; }
 
     .resume-card {
         flex-direction: column;
         align-items: flex-start;
+    }
+
+    /* mobile browsers don't render embedded PDFs; the View / Open links cover it */
+    .resume-preview,
+    .cad-item embed,
+    .cad-hint {
+        display: none;
+    }
+
+    .cad-item {
+        display: inline-block;
+        margin: 0.4rem 0.4rem 0 0;
+    }
+
+    .cad-item + .cad-item { margin-top: 0.4rem; }
+
+    .cad-item a {
+        margin-top: 0;
+        padding: 0.6rem 1.1rem;
+        border: 1px solid var(--border-strong);
+        border-radius: 999px;
+        background: var(--surface);
+    }
+
+    /* 16px stops iOS from zooming in when a field is focused */
+    #contact-form input,
+    #contact-form textarea {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-cta .btn,
+    .resume-actions .btn {
+        flex: 1 1 auto;
+        justify-content: center;
+    }
+
+    .resume-actions,
+    #contact-form button {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* no hover lift on touch screens, where :hover sticks after a tap */
+@media (hover: none) {
+    .btn-primary:hover,
+    .btn-ghost:hover,
+    .shots img:hover,
+    .social-links a:hover {
+        transform: none;
+    }
+
+    .btn-primary:hover::after { transform: translateX(-120%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-delay: 0s !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        transition-delay: 0s !important;
     }
 }

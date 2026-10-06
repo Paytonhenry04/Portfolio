@@ -3,6 +3,32 @@
    ============================================================ */
 
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+/* ---------- scroll reveal ---------- */
+// Runs immediately (this script loads at the end of <body>) so .reveal elements are
+// hidden before first paint. Elements that enter view together are staggered.
+(function () {
+    const els = document.querySelectorAll('.reveal');
+    if (!els.length || prefersReducedMotion || !('IntersectionObserver' in window)) return;
+
+    document.documentElement.classList.add('reveal-on');
+
+    const io = new IntersectionObserver((entries) => {
+        entries
+            .filter((entry) => entry.isIntersecting)
+            .forEach((entry, k) => {
+                const el = entry.target;
+                el.style.transitionDelay = k * 90 + 'ms';
+                el.classList.add('in');
+                io.unobserve(el);
+                // drop the delay once revealed so hover transitions stay snappy
+                setTimeout(() => { el.style.transitionDelay = ''; }, 900 + k * 90);
+            });
+    }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+
+    els.forEach((el) => io.observe(el));
+})();
 
 /* ---------- EmailJS contact form ---------- */
 (function () {
@@ -43,38 +69,105 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!el) return;
     const text = el.getAttribute('data-typed');
 
+    // an invisible full copy (with cursor) holds the final size; the live copy types over it
+    const span = (cls, content) => {
+        const s = document.createElement('span');
+        s.className = cls;
+        s.setAttribute('aria-hidden', 'true');
+        if (content) s.textContent = content;
+        return s;
+    };
+    const ghost = span('typed-ghost', text + '|');
+    const live = span('typed-live');
+    const typed = document.createTextNode('');
+    live.append(typed, span('cursor', '|'));
+
+    el.setAttribute('aria-label', text);
+    el.textContent = '';
+    el.classList.add('typed');
+    el.append(ghost, live);
+
     if (prefersReducedMotion) {
-        el.textContent = text;
-        const c = document.createElement('span');
-        c.className = 'cursor';
-        c.textContent = '|';
-        el.appendChild(c);
+        typed.data = text;
         return;
     }
 
-    el.textContent = '';
     let i = 0;
-    const timer = setInterval(() => {
-        if (i < text.length) {
-            el.textContent += text.charAt(i);
-            i++;
-        } else {
-            clearInterval(timer);
-            const c = document.createElement('span');
-            c.className = 'cursor';
-            c.textContent = '|';
-            el.appendChild(c);
-        }
-    }, 90);
+    setTimeout(function step() {
+        typed.data = text.slice(0, ++i);
+        if (i < text.length) setTimeout(step, 70 + Math.random() * 60);
+    }, 450);
 });
 
-/* ---------- sticky header state ---------- */
+/* ---------- sticky header state, scroll progress, back-to-top ---------- */
 document.addEventListener('DOMContentLoaded', function () {
     const header = document.querySelector('.site-header');
     if (!header) return;
-    const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 20);
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
+
+    const bar = document.createElement('div');
+    bar.className = 'scroll-progress';
+    header.appendChild(bar);
+
+    const top = document.createElement('button');
+    top.type = 'button';
+    top.className = 'to-top';
+    top.setAttribute('aria-label', 'Back to top');
+    top.innerHTML = '<i class="fas fa-arrow-up"></i>';
+    top.addEventListener('click', () => window.scrollTo({ top: 0, behavior: prefersReducedMotion ? 'auto' : 'smooth' }));
+    document.body.appendChild(top);
+
+    let ticking = false;
+    const update = () => {
+        const y = window.scrollY;
+        const max = document.documentElement.scrollHeight - window.innerHeight;
+        header.classList.toggle('scrolled', y > 20);
+        bar.style.setProperty('--progress', max > 0 ? Math.min(y / max, 1) : 0);
+        top.classList.toggle('show', y > window.innerHeight * 0.9);
+        ticking = false;
+    };
+    update();
+    window.addEventListener('scroll', () => {
+        if (!ticking) { ticking = true; requestAnimationFrame(update); }
+    }, { passive: true });
+    window.addEventListener('resize', update);
+});
+
+/* ---------- highlight the nav link for the section in view ---------- */
+document.addEventListener('DOMContentLoaded', function () {
+    if (!('IntersectionObserver' in window)) return;
+    const links = new Map();
+    document.querySelectorAll('.nav-links a[href^="#"]').forEach((a) => {
+        const section = document.querySelector(a.getAttribute('href'));
+        if (section) links.set(section, a);
+    });
+    if (!links.size) return;
+
+    const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            const a = links.get(entry.target);
+            if (entry.isIntersecting) {
+                links.forEach((other) => other.classList.remove('active'));
+                a.classList.add('active');
+            } else {
+                a.classList.remove('active');
+            }
+        });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+
+    links.forEach((_, section) => io.observe(section));
+});
+
+/* ---------- cursor spotlight on cards ---------- */
+document.addEventListener('DOMContentLoaded', function () {
+    if (!finePointer || prefersReducedMotion) return;
+    document.querySelectorAll('.project, .resume-card, .term, .stat').forEach((card) => {
+        card.classList.add('spot');
+        card.addEventListener('pointermove', (e) => {
+            const r = card.getBoundingClientRect();
+            card.style.setProperty('--mx', e.clientX - r.left + 'px');
+            card.style.setProperty('--my', e.clientY - r.top + 'px');
+        });
+    });
 });
 
 /* ---------- mobile nav toggle ---------- */
@@ -83,15 +176,19 @@ document.addEventListener('DOMContentLoaded', function () {
     const links = document.getElementById('nav-links');
     if (!toggle || !links) return;
 
-    const close = () => {
-        links.classList.remove('open');
-        toggle.setAttribute('aria-expanded', 'false');
+    const icon = toggle.querySelector('i');
+    const setOpen = (open) => {
+        links.classList.toggle('open', open);
+        toggle.setAttribute('aria-expanded', String(open));
+        if (icon) icon.className = open ? 'fas fa-xmark' : 'fas fa-bars';
     };
+    const close = () => setOpen(false);
 
     toggle.addEventListener('click', function () {
-        const open = links.classList.toggle('open');
-        toggle.setAttribute('aria-expanded', String(open));
+        setOpen(!links.classList.contains('open'));
     });
+
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
 
     links.querySelectorAll('a').forEach((a) => a.addEventListener('click', close));
 
