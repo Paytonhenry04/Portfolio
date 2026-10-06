@@ -86,17 +86,17 @@
                         <p>Salesforce developer, CS student, project builder. One-page PDF.</p>
                     </div>
                     <div class="resume-actions">
-                        <a href="assets/images/UpdatedResume.pdf" target="_blank" rel="noopener" class="btn btn-primary">
+                        <a href="assets/images/SD.ResumeV2.pdf" target="_blank" rel="noopener" class="btn btn-primary">
                             <i class="fas fa-arrow-up-right-from-square"></i> View
                         </a>
-                        <a href="assets/images/UpdatedResume.pdf" download class="btn btn-ghost">
+                        <a href="assets/images/SD.ResumeV2.pdf" download class="btn btn-ghost">
                             <i class="fas fa-download"></i> Download
                         </a>
                     </div>
                 </div>
                 <details class="resume-preview reveal">
                     <summary><i class="fas fa-file-lines"></i> Preview Resume</summary>
-                    <embed src="assets/images/UpdatedResume.pdf" type="application/pdf" />
+                    <embed src="assets/images/SD.ResumeV2.pdf" type="application/pdf" />
                 </details>
             </div>
         </section>
@@ -106,7 +106,7 @@
                 <div class="section-head reveal">
                     <span class="eyebrow">Projects</span>
                     <h2>Selected work</h2>
-                    <p>Four projects across mobile, AI, cloud, security, and CAD. Expand any card for the full write-up.</p>
+                    <p>Five projects across mobile, web, AI, cloud, security, and CAD. Expand any card for the full write-up.</p>
                 </div>
 
                 <div class="projects">
@@ -197,6 +197,69 @@
                         <div class="tag-row">
                             <span>React Native</span><span>Firebase</span><span>Google Gemini API</span>
                             <span>Spring Boot</span><span>GCP Cloud Functions</span><span>Dexcom API</span>
+                        </div>
+                    </article>
+
+                    <!-- Wedding Website -->
+                    <article class="project reveal">
+                        <div class="project-head">
+                            <h3>Wedding Website, Event Site with RSVP System</h3>
+                        </div>
+                        <span class="project-meta">May to October 2026</span>
+
+                        <p class="project-lead">A custom-built, responsive wedding website hosted on Netlify. Guests can
+                        find the event details, day-of schedule, photos, and registry links, and RSVP online. Every
+                        response is emailed automatically, and a serverless function keeps a running guest count.</p>
+
+                        <div class="shots wide">
+                            <img src="assets/images/WWhero.png" alt="Wedding website landing page">
+                            <img src="assets/images/WWrsvp.png" alt="Wedding website RSVP form">
+                            <img src="assets/images/WWdetails.png" alt="Wedding website celebration details cards">
+                            <img src="assets/images/WWschedule.png" alt="Wedding website day-of schedule timeline">
+                            <img src="assets/images/WWregistry.png" alt="Wedding website registry choice dialog">
+                        </div>
+
+                        <details class="more">
+                            <summary><span class="more-label-closed">Read more</span><span class="more-label-open">Show less</span></summary>
+                            <div class="more-content">
+                                <h4>RSVP and email pipeline</h4>
+                                <p>The RSVP form collects the responding guest's name, whether they are attending, the
+                                full name of each guest in their invited party (with a live head count as they type),
+                                a phone number, and a mailing address. On submit, the browser first sends the guest
+                                count to a Netlify Function, which adds it to a running total stored in Netlify Blobs
+                                and returns the new total. The browser then sends the full RSVP to Web3Forms, which
+                                emails it to the couple with a generated subject line such as
+                                <em>Wedding RSVP: Jane Doe (3 attending) - 57 guests total</em>. If the counter is
+                                ever unavailable, the RSVP still goes through without the total.</p>
+                                <ul>
+                                    <li><strong>Secret handling.</strong> The Web3Forms access key is never committed to
+                                    git. A Netlify build step injects it into the page from an environment variable at
+                                    deploy time.</li>
+                                    <li><strong>Inbox automation.</strong> Every RSVP email carries a reference tag that
+                                    a Gmail filter uses to file it under its own label automatically. An optional Google
+                                    Apps Script syncs that label into a spreadsheet that serves as the authoritative
+                                    guest count.</li>
+                                    <li><strong>Admin reset.</strong> A token-protected endpoint on the same function
+                                    resets or corrects the running total after testing.</li>
+                                    <li><strong>Registry.</strong> A dialog lets guests choose between the gift registry
+                                    and a honeymoon fund page.</li>
+                                </ul>
+                                <h4>Design and performance</h4>
+                                <ul>
+                                    <li>Node.js scripts using <strong>sharp</strong> resize and compress the photos and
+                                    key out the backgrounds of public-domain botanical illustrations and hand-painted
+                                    artwork.</li>
+                                    <li>The vine border around each card is an SVG generated by a script, drawn as a
+                                    9-slice border image so it tiles cleanly at any size.</li>
+                                    <li>Netlify config sets long-lived cache headers for images, security headers, and a
+                                    redirect for old links.</li>
+                                </ul>
+                            </div>
+                        </details>
+
+                        <div class="tag-row">
+                            <span>HTML / CSS / JavaScript</span><span>Netlify Functions</span><span>Netlify Blobs</span>
+                            <span>Web3Forms</span><span>Node.js</span><span>sharp</span>
                         </div>
                     </article>
 
