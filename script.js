@@ -384,3 +384,25 @@ document.addEventListener('DOMContentLoaded', function () {
     window.addEventListener('scroll', queue, { passive: true });
     document.documentElement.addEventListener('mouseleave', () => { x = y = -1e4; queue(); });
 });
+
+/* ---------- PDF previews load only when their section is opened ---------- */
+document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('details').forEach((section) => {
+        if (!section.querySelector('embed[data-src]')) return;
+
+        const load = () => {
+            if (!section.open) return;
+            // a fresh element is the reliable way to start an <embed> in every browser
+            section.querySelectorAll('embed[data-src]').forEach((old) => {
+                const embed = old.cloneNode();
+                embed.src = old.dataset.src;
+                embed.removeAttribute('data-src');
+                old.replaceWith(embed);
+            });
+            section.removeEventListener('toggle', load);
+        };
+
+        section.addEventListener('toggle', load);
+        load();
+    });
+});
