@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Payton Henry, Portfolio</title>
-    <meta name="description" content="Payton Henry. Computer science student and developer. Projects in mobile apps, AI, cloud, and security.">
+    <meta name="description"
+        content="Payton Henry. Computer science student and developer. Projects in mobile apps, AI, cloud, and security.">
     <script>document.documentElement.className += ' js';</script>
     <link rel="stylesheet" href="assets/styles/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
+
 <body>
     <header class="site-header">
         <div class="container nav">
@@ -60,10 +64,10 @@
                     </div>
                     <div class="about-body">
                         <p>I'm studying computer science with a concentration in machine learning and AI at
-                        California Baptist University. I'm passionate about coding and design, and I enjoy
-                        building practical software for real-life problems.</p>
+                            California Baptist University. I'm passionate about coding and design, and I enjoy
+                            building practical software for real-life problems.</p>
                         <p>I like picking up new languages and tools and putting them to work on real projects,
-                        from mobile apps to cloud back ends to security tooling.</p>
+                            from mobile apps to cloud back ends to security tooling.</p>
                         <blockquote class="about-quote">
                             &ldquo;Trust in the Lord with all your heart and lean not on your own understanding;
                             in all your ways submit to him, and he will make your paths straight.&rdquo;
@@ -86,17 +90,18 @@
                         <p>Salesforce developer, CS student, project builder. One-page PDF.</p>
                     </div>
                     <div class="resume-actions">
-                        <a href="assets/images/SD.ResumeV2.pdf" target="_blank" rel="noopener" class="btn btn-primary">
+                        <a href="assets/images/Payton_Henry_Resume_V5.pdf" target="_blank" rel="noopener"
+                            class="btn btn-primary">
                             <i class="fas fa-arrow-up-right-from-square"></i> View
                         </a>
-                        <a href="assets/images/SD.ResumeV2.pdf" download class="btn btn-ghost">
+                        <a href="assets/images/Payton_Henry_Resume_V5.pdf" download class="btn btn-ghost">
                             <i class="fas fa-download"></i> Download
                         </a>
                     </div>
                 </div>
                 <details class="resume-preview reveal">
                     <summary><i class="fas fa-file-lines"></i> Preview Resume</summary>
-                    <embed src="assets/images/SD.ResumeV2.pdf" type="application/pdf" />
+                    <embed src="assets/images/Payton_Henry_Resume_V5.pdf" type="application/pdf" />
                 </details>
             </div>
         </section>
@@ -106,26 +111,238 @@
                 <div class="section-head reveal">
                     <span class="eyebrow">Projects</span>
                     <h2>Selected work</h2>
-                    <p>Five projects across mobile, web, AI, cloud, security, and CAD. Expand any card for the full write-up.</p>
+                    <p>Eight projects across AI, machine learning, mobile, web, cloud, security, and CAD. Expand any
+                        card for the full write-up.</p>
                 </div>
 
                 <div class="projects">
+                    <!-- Ember -->
+                    <article class="project reveal">
+                        <div class="project-head">
+                            <h3>Ember, Knowledge Graph for AI Coding Agents</h3>
+                        </div>
+                        <span class="project-meta">With Ryan Stoffel, Elijah Tabor, Brandon Magana &amp; Jacob Pugh
+                            &nbsp;&middot;&nbsp; California Baptist University Senior Capstone &nbsp;&middot;&nbsp; Fall
+                            2026 to Present</span>
+
+                        <p class="project-lead">Ember replaces static context files like AGENTS.md with a typed
+                            knowledge
+                            graph of a team's decisions, conventions, people, tickets, and code. The graph updates
+                            itself from
+                            GitHub, Jira, and Slack activity and is exposed to any AI coding tool through an MCP server.
+                            A web
+                            dashboard shows the team where its tools disagree, such as a blocker mentioned in Slack that
+                            Jira
+                            never recorded.</p>
+
+                        <div class="shots wide" data-preview="2">
+                            <img src="assets/images/EMdashboard.png"
+                                alt="Ember dashboard showing items that need attention across GitHub, Jira, and Slack">
+                            <img src="assets/images/EMgraph.png"
+                                alt="Ember knowledge graph of tickets, pull requests, messages, people, and modules">
+                            <img src="assets/images/EMgraphGrouped.png"
+                                alt="Ember knowledge graph grouped by source, with one ticket's relationships highlighted">
+                            <img src="assets/images/EMworkflight.png"
+                                alt="Ember work in flight table and recent activity feed">
+                            <img src="assets/images/EMsources.png"
+                                alt="Ember settings page for choosing GitHub, GitLab, Jira, Slack, and Microsoft Teams sources">
+                        </div>
+
+                        <details class="more">
+                            <summary><span class="more-label-closed">Read more</span><span class="more-label-open">Show
+                                    less</span></summary>
+                            <div class="more-content">
+                                <h4>Dashboard</h4>
+                                <p>The dashboard reads every connected source and surfaces where they don't add up. The
+                                    Needs attention list groups problems into blockers, failing checks, status drift,
+                                    work
+                                    waiting on review, missing links, and decisions that never made it into a ticket.
+                                    Each
+                                    one shows the Slack message, ticket, and pull request behind it, along with a
+                                    one-click
+                                    fix such as flagging a ticket as blocked, re-running checks, or moving a ticket back
+                                    to
+                                    In Development. A Work in flight table lists every open ticket with its pull request
+                                    and
+                                    where it was last discussed, next to a recent activity feed across all sources.</p>
+                                <h4>Knowledge graph</h4>
+                                <ul>
+                                    <li>An interactive force-directed graph of work items, changes, messages, people,
+                                        decisions, conversations, and code modules, filterable by source and node type.
+                                    </li>
+                                    <li>Group by source pulls the GitHub, Jira, and Slack subgraphs apart. People
+                                        resolved
+                                        across all three sit in the middle, so selecting a ticket shows the typed
+                                        relationships that connect it to pull requests, messages, and teammates.</li>
+                                    <li>A preview workspace with a made-up team lets anyone try the full app before
+                                        connecting real sources. Changes made there stay in the browser.</li>
+                                </ul>
+                                <h4>Architecture and infrastructure</h4>
+                                <ul>
+                                    <li>Ingestion services receive GitHub App webhooks, Jira webhooks, Slack Events API
+                                        events, and GitLab webhooks, and a pipeline writes them into Neo4j as typed
+                                        nodes and
+                                        relationships.</li>
+                                    <li>An MCP server exposes the graph to AI coding tools, alongside a Next.js web app
+                                        and a CLI in the same monorepo.</li>
+                                    <li>Runs on a homelab k3s cluster provisioned with Ansible and deployed GitOps-style
+                                        with Flux. Secrets are encrypted with SOPS, services are reached over Tailscale,
+                                        and
+                                        CI publishes container images to GHCR.</li>
+                                    <li>Every branch and pull request maps to a Jira ticket, and design choices are
+                                        recorded as Architecture Decision Records.</li>
+                                </ul>
+                            </div>
+                        </details>
+
+                        <div class="tag-row">
+                            <span>Next.js</span><span>React / TypeScript</span><span>d3-force</span><span>Neo4j</span>
+                            <span>MCP</span><span>Kubernetes (k3s)</span><span>Flux</span><span>Ansible</span>
+                        </div>
+                    </article>
+
+                    <!-- Formula Fly -->
+                    <article class="project reveal">
+                        <div class="project-head">
+                            <h3>Formula Fly, a Connectome-Wired Fruit Fly That Drives</h3>
+                        </div>
+                        <span class="project-meta">With Ryan Stoffel, Elijah Tabor &amp; Joseph Rus &nbsp;&middot;&nbsp;
+                            CSCI 4220 Machine and Deep Learning &nbsp;&middot;&nbsp; September 2026 to Present</span>
+
+                        <p class="project-lead">A fully simulated tethered-fly rig. A virtual fruit fly sees a race
+                            track
+                            through a visual system wired like the real fly connectome, models of its brain circuits
+                            turn that
+                            into movement of a simulated body, and those movements drive a race car. The fly learns to
+                            drive
+                            with reinforcement learning. The research question is whether biologically copied wiring
+                            helps,
+                            hurts, or doesn't matter compared with unconstrained networks of the same size.</p>
+
+                        <div class="shots wide">
+                            <video src="assets/images/FFdrive.mp4" poster="assets/images/FFdrive.jpg" width="1280"
+                                height="724" muted loop playsinline preload="none"
+                                aria-label="The simulated fruit fly sitting in the cockpit of a Formula car at Silverstone in Assetto Corsa"></video>
+                            <video src="assets/images/FFmujoco.mp4" poster="assets/images/FFmujoco.jpg" width="1280"
+                                height="674" muted loop playsinline preload="none"
+                                aria-label="Driving the MuJoCo practice track with the fly's compound-eye activity overlaid, then the raw view through its eye"></video>
+                        </div>
+
+                        <details class="more">
+                            <summary><span class="more-label-closed">Read more</span><span class="more-label-open">Show
+                                    less</span></summary>
+                            <div class="more-content">
+                                <h4>Pipeline</h4>
+                                <p>Eye, brain, body, car. The eye is the flyvis optic-lobe model, built on the FlyWire
+                                    adult brain connectome. Its activity feeds models of the fly's brain circuits, which
+                                    move
+                                    a flybody fly in MuJoCo, and those movements become steering, throttle, and brake.
+                                    Every
+                                    stage sits behind one shared interface (a camera frame in, a control vector out), so
+                                    any
+                                    stage can be swapped for a simpler stand-in. A direct-drive agent skips the body
+                                    entirely. The connectome's topology stays fixed, and the team trains the encoding,
+                                    decoding, and optionally the synapse strengths with PPO in PyTorch.</p>
+                                <h4>Practice track and demo</h4>
+                                <ul>
+                                    <li>The scientific benchmark is the team's own MuJoCo practice track, built from
+                                        Silverstone's centerline. The camera sits at the fly's head because flyvis
+                                        models
+                                        motion vision: the eye needs to see the scene expand as the car accelerates and
+                                        flow sideways as it turns.</li>
+                                    <li>The second clip shows that view. The colored hexagons are the activity of the
+                                        fly's visual neurons while driving, followed by the raw image as the fly's
+                                        compound
+                                        eye samples it.</li>
+                                    <li>A HUD shows speed, RPM, gear, steering, suspension travel, and a live track map.
+                                        Laps are timed with penalties for leaving the circuit and logged automatically.
+                                        A
+                                        human can drive the same track with a keyboard or gamepad for comparison.</li>
+                                    <li>The headline demo, shown in the first clip, puts the fly in the cockpit of a
+                                        Formula car in Assetto Corsa on the same circuit.</li>
+                                </ul>
+                            </div>
+                        </details>
+
+                        <div class="tag-row">
+                            <span>Python</span><span>PyTorch</span><span>MuJoCo</span><span>Reinforcement learning
+                                (PPO)</span>
+                            <span>flyvis</span><span>FlyWire connectome</span><span>Assetto Corsa</span>
+                        </div>
+                    </article>
+
+                    <!-- CBU WebTAK -->
+                    <article class="project reveal">
+                        <div class="project-head">
+                            <h3>CBU WebTAK, Live Campus and Airport Flight Map</h3>
+                        </div>
+                        <span class="project-meta">September 2026</span>
+
+                        <p class="project-lead">A 2D/3D mapping server of the CBU campus and Riverside Municipal Airport
+                            (KRAL). It tracks CBU flights around campus and gives details about the area, with every
+                            live
+                            feed delivered through TAK (Team Awareness Kit) using FreeTAKServer.</p>
+
+                        <details class="more">
+                            <summary><span class="more-label-closed">Read more</span><span class="more-label-open">Show
+                                    less</span></summary>
+                            <div class="more-content">
+                                <h4>Data flow</h4>
+                                <p>A Python feeder polls ADS-B data for CBU's aircraft and sends each one to
+                                    FreeTAKServer as a Cursor on Target (CoT) event, carrying registration, position,
+                                    altitude, speed, heading, and aircraft type. A FastAPI backend connects to the same
+                                    server as a TAK client and serves the latest aircraft to the browser, where MapLibre
+                                    GL
+                                    JS draws them over OpenStreetMap campus buildings (tiltable into 3D) and airport
+                                    geometry. The map takes data only from TAK, never directly from the public feeds, so
+                                    it reflects exactly what the TAK network sees.</p>
+                                <ul>
+                                    <li><strong>More TAK feeds.</strong> Separate feeders push KRAL weather from NOAA's
+                                        Aviation Weather Center and live Riverside Transit Agency buses from its
+                                        GTFS-realtime feed, using the same pattern.</li>
+                                    <li><strong>Debugging the relay.</strong> FreeTAKServer only forwards a client's
+                                        events once that client has announced itself with a self-presence message.
+                                        Measured
+                                        directly, an unregistered sender delivered zero events. Both ends now register
+                                        on
+                                        connect and re-announce every two minutes.</li>
+                                    <li><strong>Deployment.</strong> FreeTAKServer runs in Docker, and every service
+                                        runs
+                                        under systemd with automatic restarts, grouped so one command starts or stops
+                                        the
+                                        whole stack. Caddy serves it over HTTPS with Let's Encrypt certificates.</li>
+                                </ul>
+                            </div>
+                        </details>
+
+                        <div class="tag-row">
+                            <span>Python</span><span>FastAPI</span><span>FreeTAKServer</span><span>Cursor on
+                                Target</span>
+                            <span>MapLibre GL JS</span><span>Docker</span><span>systemd</span><span>Caddy</span>
+                        </div>
+                    </article>
+
                     <!-- SnapDose -->
                     <article class="project reveal">
                         <div class="project-head">
                             <h3>SnapDose, AI Diabetes Nutritionist</h3>
                         </div>
-                        <span class="project-meta">With Ryan Stoffel, Elijah Tabor, Micah Suk &amp; Millie Anderson &nbsp;&middot;&nbsp; California Baptist University &nbsp;&middot;&nbsp; January to May 2026</span>
+                        <span class="project-meta">With Ryan Stoffel, Elijah Tabor, Micah Suk &amp; Millie Anderson
+                            &nbsp;&middot;&nbsp; California Baptist University &nbsp;&middot;&nbsp; January to May
+                            2026</span>
 
                         <div class="project-figure center">
                             <img src="assets/images/SDhome2.jpg" alt="SnapDose home screen and dashboard">
                         </div>
 
-                        <p class="project-lead">SnapDose helps diabetes patients count carbs instantly: snap a photo of a meal
-                        and get an AI carbohydrate estimate in seconds instead of spending 5 to 10 minutes on manual
-                        calculation. It tracks meal history, shows a confidence rating for each estimate, identifies food
-                        items in photos, and monitors weekly trends. By making carb counting fast and easy, SnapDose helps
-                        patients make better food choices and manage their blood sugar more effectively.</p>
+                        <p class="project-lead">SnapDose helps diabetes patients count carbs instantly: snap a photo of
+                            a meal
+                            and get an AI carbohydrate estimate in seconds instead of spending 5 to 10 minutes on manual
+                            calculation. It tracks meal history, shows a confidence rating for each estimate, identifies
+                            food
+                            items in photos, and monitors weekly trends. By making carb counting fast and easy, SnapDose
+                            helps
+                            patients make better food choices and manage their blood sugar more effectively.</p>
 
                         <div class="shots">
                             <img src="assets/images/SDdose.jpg" alt="SnapDose insulin dosing screen">
@@ -137,59 +354,91 @@
                         </div>
 
                         <details class="more">
-                            <summary><span class="more-label-closed">Read more</span><span class="more-label-open">Show less</span></summary>
+                            <summary><span class="more-label-closed">Read more</span><span class="more-label-open">Show
+                                    less</span></summary>
                             <div class="more-content">
                                 <h4>Architecture</h4>
                                 <p>SnapDose runs on a serverless Google Cloud Platform architecture. The React Native
-                                frontend uses Firebase Authentication and Firestore, with security rules keeping each user's
-                                data private. When a user uploads a meal photo, Firebase Storage triggers a Google Cloud
-                                Function that sends the image to the Google Gemini 3.1 Pro API with specialized nutrition
-                                prompts. Gemini returns carb estimates, confidence levels, detected foods, and notes, which
-                                are saved to Firestore with timestamps as a JSON file. The app caches data locally through
-                                Firestore's offline persistence.</p>
-                                <p>A Spring Boot REST API bridges the app to a simulated physical insulin pump built on a
-                                Tab5 microcontroller. When a user logs carbs and requests an insulin dose, the request is
-                                sent securely through Firebase Authentication to the Spring Boot API, which relays it to the
-                                Tab5 device. The Tab5 pump polls for pending bolus requests, delivers insulin, reports
-                                confirmation to Firestore, and maintains heartbeat communication. SnapDose also integrates
-                                the Dexcom API to pull real-time continuous glucose monitoring data, so users can view blood
-                                sugar alongside meal tracking and insulin dosing in one unified dashboard. The entire system
-                                is serverless and scales automatically, with all user data stored securely and controlled by
-                                the user.</p>
+                                    frontend uses Firebase Authentication and Firestore, with security rules keeping
+                                    each user's
+                                    data private. When a user uploads a meal photo, Firebase Storage triggers a Google
+                                    Cloud
+                                    Function that sends the image to the Google Gemini 3.1 Pro API with specialized
+                                    nutrition
+                                    prompts. Gemini returns carb estimates, confidence levels, detected foods, and
+                                    notes, which
+                                    are saved to Firestore with timestamps as a JSON file. The app caches data locally
+                                    through
+                                    Firestore's offline persistence.</p>
+                                <p>A Spring Boot REST API bridges the app to a simulated physical insulin pump built on
+                                    a
+                                    Tab5 microcontroller. When a user logs carbs and requests an insulin dose, the
+                                    request is
+                                    sent securely through Firebase Authentication to the Spring Boot API, which relays
+                                    it to the
+                                    Tab5 device. The Tab5 pump polls for pending bolus requests, delivers insulin,
+                                    reports
+                                    confirmation to Firestore, and maintains heartbeat communication. SnapDose also
+                                    integrates
+                                    the Dexcom API to pull real-time continuous glucose monitoring data, so users can
+                                    view blood
+                                    sugar alongside meal tracking and insulin dosing in one unified dashboard. The
+                                    entire system
+                                    is serverless and scales automatically, with all user data stored securely and
+                                    controlled by
+                                    the user.</p>
                                 <div class="diagram">
-                                    <img src="assets/images/SDarch.jpg" alt="SnapDose system architecture on Google Cloud Platform">
+                                    <img src="assets/images/SDarch.jpg"
+                                        alt="SnapDose system architecture on Google Cloud Platform">
                                     <p class="figcaption">System architecture on Google Cloud Platform</p>
                                 </div>
                                 <h4>Screens</h4>
                                 <ul>
-                                    <li><strong>Home and Dashboard</strong> (shown above, in dark mode). Lets users calculate
-                                    and log an insulin dose. It displays the current insulin on board (3.0u active) and
-                                    offers two dose types, Meal Dose and Correction Dose. Users can adjust total
-                                    carbohydrates with plus and minus buttons, and the app calculates a recommended dose
-                                    based on their carb ratio and active insulin.</li>
-                                    <li><strong>Insulin Dosing</strong>. Calculates insulin requirements for meals based on
-                                    carbohydrate intake and current insulin activity. Users can quickly adjust carb counts
-                                    and choose between meal-based dosing (using carb ratio) or correction dosing (targeting a
-                                    specific glucose level).</li>
+                                    <li><strong>Home and Dashboard</strong> (shown above, in dark mode). Lets users
+                                        calculate
+                                        and log an insulin dose. It displays the current insulin on board (3.0u active)
+                                        and
+                                        offers two dose types, Meal Dose and Correction Dose. Users can adjust total
+                                        carbohydrates with plus and minus buttons, and the app calculates a recommended
+                                        dose
+                                        based on their carb ratio and active insulin.</li>
+                                    <li><strong>Insulin Dosing</strong>. Calculates insulin requirements for meals based
+                                        on
+                                        carbohydrate intake and current insulin activity. Users can quickly adjust carb
+                                        counts
+                                        and choose between meal-based dosing (using carb ratio) or correction dosing
+                                        (targeting a
+                                        specific glucose level).</li>
                                     <li><strong>Dose Confirmation Sheet</strong>. Validates dosing calculations before
-                                    delivery by showing the complete mathematical breakdown. It protects against accidental
-                                    doses with a slide-to-confirm interaction, and displays how current glucose, carb ratio,
-                                    and active insulin combine to determine the final dose amount.</li>
-                                    <li><strong>AI Analysis Results</strong>. Processes food photos through AI to identify
-                                    items and estimate carbohydrate content. Confidence ratings help users decide whether to
-                                    accept the estimate or adjust it manually, and the screen streamlines the transition from
-                                    carb estimation to insulin dosing.</li>
+                                        delivery by showing the complete mathematical breakdown. It protects against
+                                        accidental
+                                        doses with a slide-to-confirm interaction, and displays how current glucose,
+                                        carb ratio,
+                                        and active insulin combine to determine the final dose amount.</li>
+                                    <li><strong>AI Analysis Results</strong>. Processes food photos through AI to
+                                        identify
+                                        items and estimate carbohydrate content. Confidence ratings help users decide
+                                        whether to
+                                        accept the estimate or adjust it manually, and the screen streamlines the
+                                        transition from
+                                        carb estimation to insulin dosing.</li>
                                     <li><strong>Weekly Summary</strong>. Aggregates meal and carbohydrate data to reveal
-                                    eating patterns over time. Users can review past meals with visual thumbnails and
-                                    timestamps, and use it as a searchable log of what was eaten and when insulin was
-                                    dosed.</li>
-                                    <li><strong>Settings</strong>. Manages connections to external diabetes devices (CGM and
-                                    insulin pump) and monitors device connectivity so data keeps flowing. Users can
-                                    configure or change their insulin delivery device and verify pairing status.</li>
-                                    <li><strong>Profile</strong>. Stores the diabetes management parameters that drive dose
-                                    calculations, including target glucose ranges, physical characteristics, and
-                                    carb-to-insulin ratios. It is the central place to review and adjust personalized
-                                    treatment parameters.</li>
+                                        eating patterns over time. Users can review past meals with visual thumbnails
+                                        and
+                                        timestamps, and use it as a searchable log of what was eaten and when insulin
+                                        was
+                                        dosed.</li>
+                                    <li><strong>Settings</strong>. Manages connections to external diabetes devices (CGM
+                                        and
+                                        insulin pump) and monitors device connectivity so data keeps flowing. Users can
+                                        configure or change their insulin delivery device and verify pairing status.
+                                    </li>
+                                    <li><strong>Profile</strong>. Stores the diabetes management parameters that drive
+                                        dose
+                                        calculations, including target glucose ranges, physical characteristics, and
+                                        carb-to-insulin ratios. It is the central place to review and adjust
+                                        personalized
+                                        treatment parameters.</li>
                                 </ul>
                             </div>
                         </details>
@@ -208,8 +457,9 @@
                         <span class="project-meta">May to October 2026</span>
 
                         <p class="project-lead">A custom-built, responsive wedding website hosted on Netlify. Guests can
-                        find the event details, day-of schedule, photos, and registry links, and RSVP online. Every
-                        response is emailed automatically, and a serverless function keeps a running guest count.</p>
+                            find the event details, day-of schedule, photos, and registry links, and RSVP online. Every
+                            response is emailed automatically, and a serverless function keeps a running guest count.
+                        </p>
 
                         <div class="shots wide">
                             <img src="assets/images/WWhero.png" alt="Wedding website landing page">
@@ -220,39 +470,46 @@
                         </div>
 
                         <details class="more">
-                            <summary><span class="more-label-closed">Read more</span><span class="more-label-open">Show less</span></summary>
+                            <summary><span class="more-label-closed">Read more</span><span class="more-label-open">Show
+                                    less</span></summary>
                             <div class="more-content">
                                 <h4>RSVP and email pipeline</h4>
                                 <p>The RSVP form collects the responding guest's name, whether they are attending, the
-                                full name of each guest in their invited party (with a live head count as they type),
-                                a phone number, and a mailing address. On submit, the browser first sends the guest
-                                count to a Netlify Function, which adds it to a running total stored in Netlify Blobs
-                                and returns the new total. The browser then sends the full RSVP to Web3Forms, which
-                                emails it to the couple with a generated subject line such as
-                                <em>Wedding RSVP: Jane Doe (3 attending) - 57 guests total</em>. If the counter is
-                                ever unavailable, the RSVP still goes through without the total.</p>
+                                    full name of each guest in their invited party (with a live head count as they
+                                    type),
+                                    a phone number, and a mailing address. On submit, the browser first sends the guest
+                                    count to a Netlify Function, which adds it to a running total stored in Netlify
+                                    Blobs
+                                    and returns the new total. The browser then sends the full RSVP to Web3Forms, which
+                                    emails it to the couple with a generated subject line such as
+                                    <em>Wedding RSVP: Jane Doe (3 attending) - 57 guests total</em>. If the counter is
+                                    ever unavailable, the RSVP still goes through without the total.
+                                </p>
                                 <ul>
                                     <li><strong>Secret handling.</strong> The Web3Forms access key is never committed to
-                                    git. A Netlify build step injects it into the page from an environment variable at
-                                    deploy time.</li>
+                                        git. A Netlify build step injects it into the page from an environment variable
+                                        at
+                                        deploy time.</li>
                                     <li><strong>Inbox automation.</strong> Every RSVP email carries a reference tag that
-                                    a Gmail filter uses to file it under its own label automatically. An optional Google
-                                    Apps Script syncs that label into a spreadsheet that serves as the authoritative
-                                    guest count.</li>
+                                        a Gmail filter uses to file it under its own label automatically. An optional
+                                        Google
+                                        Apps Script syncs that label into a spreadsheet that serves as the authoritative
+                                        guest count.</li>
                                     <li><strong>Admin reset.</strong> A token-protected endpoint on the same function
-                                    resets or corrects the running total after testing.</li>
+                                        resets or corrects the running total after testing.</li>
                                     <li><strong>Registry.</strong> A dialog lets guests choose between the gift registry
-                                    and a honeymoon fund page.</li>
+                                        and a honeymoon fund page.</li>
                                 </ul>
                                 <h4>Design and performance</h4>
                                 <ul>
                                     <li>Node.js scripts using <strong>sharp</strong> resize and compress the photos and
-                                    key out the backgrounds of public-domain botanical illustrations and hand-painted
-                                    artwork.</li>
+                                        key out the backgrounds of public-domain botanical illustrations and
+                                        hand-painted
+                                        artwork.</li>
                                     <li>The vine border around each card is an SVG generated by a script, drawn as a
-                                    9-slice border image so it tiles cleanly at any size.</li>
+                                        9-slice border image so it tiles cleanly at any size.</li>
                                     <li>Netlify config sets long-lived cache headers for images, security headers, and a
-                                    redirect for old links.</li>
+                                        redirect for old links.</li>
                                 </ul>
                             </div>
                         </details>
@@ -270,9 +527,11 @@
                         </div>
                         <span class="project-meta">With Ryan Stoffel &nbsp;&middot;&nbsp; Sept 2025 to Present</span>
 
-                        <p class="project-lead">A golf tracking mobile app built with Flutter/Dart and Firebase. It uses GPS
-                        positioning and the Google Maps SDK to help golfers track shots, distances, and rounds on real
-                        courses with live location data, plus a social feed for friends.</p>
+                        <p class="project-lead">A golf tracking mobile app built with Flutter/Dart and Firebase. It uses
+                            GPS
+                            positioning and the Google Maps SDK to help golfers track shots, distances, and rounds on
+                            real
+                            courses with live location data, plus a social feed for friends.</p>
 
                         <div class="shots">
                             <img src="assets/images/coursesScreen.jpg" alt="Bogey Busters course list screen">
@@ -284,20 +543,33 @@
                         </div>
 
                         <details class="more">
-                            <summary><span class="more-label-closed">Read more</span><span class="more-label-open">Show less</span></summary>
+                            <summary><span class="more-label-closed">Read more</span><span class="more-label-open">Show
+                                    less</span></summary>
                             <div class="more-content">
-                                <p>Built with Flutter/Dart and Firebase, the app uses GPS positioning and the Google Maps
-                                SDK to help golfers track their shots, distances, and rounds on real courses with real-time
-                                location data. Firestore handles real-time data syncing, SharedPreferences stores local game
-                                state, and Firebase Storage manages media. Social features such as friend requests, likes,
-                                and comments run through Firestore streams, with Firebase Authentication handling user
-                                management.</p>
+                                <p>Built with Flutter/Dart and Firebase, the app uses GPS positioning and the Google
+                                    Maps
+                                    SDK to help golfers track their shots, distances, and rounds on real courses with
+                                    real-time
+                                    location data. Firestore handles real-time data syncing, SharedPreferences stores
+                                    local game
+                                    state, and Firebase Storage manages media. Social features such as friend requests,
+                                    likes,
+                                    and comments run through Firestore streams, with Firebase Authentication handling
+                                    user
+                                    management.</p>
                                 <ul>
-                                    <li>Flutter mobile app with a Firebase backend handling user authentication, profile management, and real-time data sync across 40+ database documents.</li>
-                                    <li>OpenStreetMap Overpass API integration that fetches course data (hole layouts, tee box coordinates, and green locations) with automatic caching to reduce API calls.</li>
-                                    <li>Google Maps SDK with custom markers and polylines to track shot distances, calculate bearing angles, and display real-time GPS positioning during a round.</li>
-                                    <li>Round persistence system using SharedPreferences that saves game state locally, letting users resume an incomplete round after an app restart.</li>
-                                    <li>Social feed with friend requests, likes, and comments powered by Firestore real-time streams and Firebase Storage for profile pictures.</li>
+                                    <li>Flutter mobile app with a Firebase backend handling user authentication, profile
+                                        management, and real-time data sync across 40+ database documents.</li>
+                                    <li>OpenStreetMap Overpass API integration that fetches course data (hole layouts,
+                                        tee box coordinates, and green locations) with automatic caching to reduce API
+                                        calls.</li>
+                                    <li>Google Maps SDK with custom markers and polylines to track shot distances,
+                                        calculate bearing angles, and display real-time GPS positioning during a round.
+                                    </li>
+                                    <li>Round persistence system using SharedPreferences that saves game state locally,
+                                        letting users resume an incomplete round after an app restart.</li>
+                                    <li>Social feed with friend requests, likes, and comments powered by Firestore
+                                        real-time streams and Firebase Storage for profile pictures.</li>
                                 </ul>
                             </div>
                         </details>
@@ -315,9 +587,11 @@
                         </div>
                         <span class="project-meta">February to March 2025</span>
 
-                        <p class="project-lead">A Python email-security application that scans a connected Gmail inbox for
-                        potential threats (spam detection, phishing URL identification, and suspicious attachment scanning)
-                        and tags messages with relevant labels.</p>
+                        <p class="project-lead">A Python email-security application that scans a connected Gmail inbox
+                            for
+                            potential threats (spam detection, phishing URL identification, and suspicious attachment
+                            scanning)
+                            and tags messages with relevant labels.</p>
 
                         <div class="shots wide">
                             <img src="assets/images/Email_ss.png" alt="Email Skimmer interface screenshot">
@@ -325,12 +599,18 @@
                         </div>
 
                         <details class="more">
-                            <summary><span class="more-label-closed">Read more</span><span class="more-label-open">Show less</span></summary>
+                            <summary><span class="more-label-closed">Read more</span><span class="more-label-open">Show
+                                    less</span></summary>
                             <div class="more-content">
                                 <ul>
-                                    <li>Spam detection, phishing URL identification, and suspicious attachment scanning, connected to Gmail. Messages are tagged with relevant labels as they are processed.</li>
-                                    <li>Runs in an interactive web-based GUI built with <strong>eel</strong>, which takes the user's Google/Gmail credentials plus other details such as how many emails to search and in what order.</li>
-                                    <li>Can generate test emails containing suspicious attachments, links, and spam text that will be flagged, so the behavior can be demonstrated safely.</li>
+                                    <li>Spam detection, phishing URL identification, and suspicious attachment scanning,
+                                        connected to Gmail. Messages are tagged with relevant labels as they are
+                                        processed.</li>
+                                    <li>Runs in an interactive web-based GUI built with <strong>eel</strong>, which
+                                        takes the user's Google/Gmail credentials plus other details such as how many
+                                        emails to search and in what order.</li>
+                                    <li>Can generate test emails containing suspicious attachments, links, and spam text
+                                        that will be flagged, so the behavior can be demonstrated safely.</li>
                                     <li>Skills: Python, PyCharm.</li>
                                 </ul>
                             </div>
@@ -348,27 +628,36 @@
                         </div>
                         <span class="project-meta">With Ian Deckman &nbsp;&middot;&nbsp; October to December 2024</span>
 
-                        <p class="project-lead">A full AutoCAD model of a Silvertone Stratocaster electric guitar, measured
-                        and modeled by a team of two. Every part was measured and dimensioned, with tolerances on small
-                        components down to &plusmn;0.001 inch, and drawn as full engineering drawings (ASME Y14.5) for both
-                        the neck and the body.</p>
+                        <p class="project-lead">A full AutoCAD model of a Silvertone Stratocaster electric guitar,
+                            measured
+                            and modeled by a team of two. Every part was measured and dimensioned, with tolerances on
+                            small
+                            components down to &plusmn;0.001 inch, and drawn as full engineering drawings (ASME Y14.5)
+                            for both
+                            the neck and the body.</p>
 
-                        <details class="more">
-                            <summary><span class="more-label-closed">View drawings</span><span class="more-label-open">Hide drawings</span></summary>
+                        <details class="more" open>
+                            <summary><span class="more-label-closed">View drawings</span><span
+                                    class="more-label-open">Hide drawings</span></summary>
                             <div class="more-content">
                                 <ul>
-                                    <li>Measured all parts and modeled a Silvertone Stratocaster in AutoCAD, working in a team of two.</li>
+                                    <li>Measured all parts and modeled a Silvertone Stratocaster in AutoCAD, working in
+                                        a team of two.</li>
                                     <li>Held accuracy on small components to within &plusmn;0.001 inch.</li>
-                                    <li>Produced fully dimensioned engineering drawings (ASME Y14.5) for the guitar body and neck.</li>
+                                    <li>Produced fully dimensioned engineering drawings (ASME Y14.5) for the guitar body
+                                        and neck.</li>
                                 </ul>
-                                <p class="cad-hint">The drawings below are interactive: scroll to zoom and drag to pan.</p>
+                                <p class="cad-hint">The drawings below are interactive: scroll to zoom and drag to pan.
+                                </p>
                                 <div class="cad-item">
                                     <embed src="assets/images/stratocaster-neck.pdf" type="application/pdf" />
-                                    <a href="assets/images/stratocaster-neck.pdf" target="_blank" rel="noopener">Open neck drawing (PDF)</a>
+                                    <a href="assets/images/stratocaster-neck.pdf" target="_blank" rel="noopener">Open
+                                        neck drawing (PDF)</a>
                                 </div>
                                 <div class="cad-item">
                                     <embed src="assets/images/stratocaster-body.pdf" type="application/pdf" />
-                                    <a href="assets/images/stratocaster-body.pdf" target="_blank" rel="noopener">Open body drawing (PDF)</a>
+                                    <a href="assets/images/stratocaster-body.pdf" target="_blank" rel="noopener">Open
+                                        body drawing (PDF)</a>
                                 </div>
                             </div>
                         </details>
@@ -422,8 +711,10 @@
     <div class="lightbox" id="lightbox" aria-hidden="true">
         <button class="lightbox-close" aria-label="Close">&times;</button>
         <img src="" alt="">
+        <video muted loop playsinline controls hidden></video>
     </div>
 
     <script src="script.js"></script>
 </body>
+
 </html>

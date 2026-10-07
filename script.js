@@ -272,10 +272,11 @@ document.addEventListener('DOMContentLoaded', function () {
 document.addEventListener('DOMContentLoaded', function () {
     const PREVIEW = 3;
     document.querySelectorAll('.shots').forEach((strip) => {
-        const imgs = Array.from(strip.querySelectorAll('img'));
-        if (imgs.length <= PREVIEW) return;
+        const preview = Number(strip.dataset.preview) || PREVIEW;
+        const imgs = Array.from(strip.querySelectorAll('img, video'));
+        if (imgs.length <= preview) return;
 
-        const extra = imgs.slice(PREVIEW);
+        const extra = imgs.slice(preview);
         extra.forEach((img) => { img.hidden = true; });
 
         const btn = document.createElement('button');
@@ -299,11 +300,23 @@ document.addEventListener('DOMContentLoaded', function () {
     const box = document.getElementById('lightbox');
     if (!box) return;
     const boxImg = box.querySelector('img');
+    const boxVideo = box.querySelector('video');
     const closeBtn = box.querySelector('.lightbox-close');
 
-    const open = (src, alt) => {
-        boxImg.src = src;
-        boxImg.alt = alt || '';
+    const open = (el) => {
+        const isVideo = el.tagName === 'VIDEO';
+        boxImg.hidden = isVideo;
+        boxVideo.hidden = !isVideo;
+        if (isVideo) {
+            boxVideo.src = el.currentSrc || el.src;
+            boxVideo.poster = el.poster;
+            boxVideo.setAttribute('aria-label', el.getAttribute('aria-label') || '');
+            boxVideo.currentTime = el.currentTime;
+            if (!prefersReducedMotion) boxVideo.play().catch(() => {});
+        } else {
+            boxImg.src = el.currentSrc || el.src;
+            boxImg.alt = el.alt || '';
+        }
         box.classList.add('open');
         box.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden';
@@ -312,14 +325,62 @@ document.addEventListener('DOMContentLoaded', function () {
         box.classList.remove('open');
         box.setAttribute('aria-hidden', 'true');
         boxImg.src = '';
+        boxVideo.pause();
+        boxVideo.removeAttribute('src');
+        boxVideo.load();
         document.body.style.overflow = '';
     };
 
-    document.querySelectorAll('.shots img').forEach((img) => {
-        img.addEventListener('click', () => open(img.currentSrc || img.src, img.alt));
+    document.querySelectorAll('.shots img, .shots video').forEach((el) => {
+        el.addEventListener('click', () => open(el));
     });
 
     closeBtn.addEventListener('click', close);
     box.addEventListener('click', (e) => { if (e.target === box) close(); });
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && box.classList.contains('open')) close(); });
+});
+
+/* ---------- play project videos only while on screen ---------- */
+document.addEventListener('DOMContentLoaded', function () {
+    const videos = document.querySelectorAll('.shots video');
+    if (!videos.length || prefersReducedMotion || !('IntersectionObserver' in window)) return;
+
+    const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) entry.target.play().catch(() => {});
+            else entry.target.pause();
+        });
+    }, { threshold: 0.25 });
+
+    videos.forEach((v) => io.observe(v));
+});
+
+/* ---------- "show more" buttons grow as the pointer gets close ---------- */
+document.addEventListener('DOMContentLoaded', function () {
+    const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    if (prefersReducedMotion || !finePointer) return;
+
+    const RADIUS = 170; // px from the button's edge where it starts to grow
+    const GROW = 0.16;  // extra scale when the pointer is on the button
+    let x = -1e4, y = -1e4, queued = false;
+
+    const update = () => {
+        queued = false;
+        document.querySelectorAll('.shots-toggle').forEach((btn) => {
+            const r = btn.getBoundingClientRect();
+            const dx = Math.max(r.left - x, 0, x - r.right);
+            const dy = Math.max(r.top - y, 0, y - r.bottom);
+            const t = Math.max(0, 1 - Math.hypot(dx, dy) / RADIUS);
+            btn.style.setProperty('--near', (1 + GROW * t * t).toFixed(3));
+        });
+    };
+    const queue = () => {
+        if (queued) return;
+        queued = true;
+        requestAnimationFrame(update);
+    };
+
+    document.addEventListener('mousemove', (e) => { x = e.clientX; y = e.clientY; queue(); }, { passive: true });
+    window.addEventListener('scroll', queue, { passive: true });
+    document.documentElement.addEventListener('mouseleave', () => { x = y = -1e4; queue(); });
 });
